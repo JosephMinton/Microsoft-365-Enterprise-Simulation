@@ -4,24 +4,42 @@ This project simulates a comprehensive Microsoft 365 enterprise environment, foc
 
 <h2>Technologies Used</h2>
 
- - <b>Microsoft 365</b> 
- - <b>Microsoft 365 Admin Center</b>
- - <b>Microsoft Entra ID (Azure AD)</b>
- - <b>Microsoft Exchange</b>
- - <b>Microsoft SharePoint</b>
- - <b>Microsoft Teams</b>
- - <b>Microsoft Outlook</b>
- - <b>Microsoft Purview</b>
- - <b>Microsoft Defender</b>
- - <b>Microsoft Health</b>
- - <b>Microsoft Intune</b>
- - <b>PowerShell</b>
- - <b>Okta</b>
- - <b>Conditional Access</b>
+<table>
+  <tr>
+    <td><b>Microsoft 365</b></td>
+    <td><b>Microsoft Purview</b></td>
+  </tr>
+  <tr>
+    <td><b>Microsoft 365 Admin Center</b></td>
+    <td><b>Microsoft Defender</b></td>
+  </tr>
+  <tr>
+    <td><b>Microsoft Entra ID (Azure AD)</b></td>
+    <td><b>Microsoft Health</b></td>
+  </tr>
+  <tr>
+    <td><b>Microsoft Exchange</b></td>
+    <td><b>Microsoft Intune</b></td>
+  </tr>
+  <tr>
+    <td><b>Microsoft SharePoint</b></td>
+    <td><b>PowerShell</b></td>
+  </tr>
+  <tr>
+    <td><b>Microsoft Teams</b></td>
+    <td><b>Okta</b></td>
+  </tr>
+  <tr>
+    <td><b>Microsoft Outlook</b></td>
+    <td><b>Conditional Access</b></td>
+  </tr>
+</table>
 
-Centralized identity control is established through dynamic group membership, role based access control, and the enforcement of conditional access policies, which govern authentication requirements and restrict access based on user risk and device compliance. The project extends into practical help desk operations, simulating real world ticket scenarios involving Outlook, Teams, and OneDrive troubleshooting. The objective of this multipart series is to demonstrate practical competency in Microsoft 365 administration within a scalable cloud enterprise model.
+Centralized identity control is established through dynamic group membership, role based access control, and the enforcement of conditional access policies, which govern authentication requirements and restrict access based on user risk and device compliance. The project extends into practical help desk operations, simulating real world ticket scenarios involving Outlook, Teams, and SharePoint troubleshooting. The objective of this multipart series is to demonstrate practical competency in Microsoft 365 administration within a scalable cloud enterprise model.
 
   - [Tenant Architecture & Identity](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/Tenant%20Architecture%20%26%20Identity.md) covers standing up a Microsoft 365 Business Premium trial tenant from scratch. Provisioning users manually and via bulk import, configuring scoped RBAC roles following least privilege, exploring the relationship between the M365 Admin Center and the Entra ID portal, and capping it off with an Okta SAML 2.0 SSO integration to simulate a federated enterprise identity architecture.
+
+<!--
 
   - [User Lifecycle](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/User%20Lifecycle) Implemented centralized administrative control using Group Policy to enforce password policies, system restrictions, and enterprise wide configuration standards across the domain.
 
