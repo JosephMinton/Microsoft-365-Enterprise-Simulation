@@ -22,13 +22,13 @@ directory exploration, and external identity provider integration via Okta SSO.
 <li><strong>Integrate Okta as an external Identity Provider via SAML 2.0</li>
 </ul>
 
-<h2>TECHNOLOGIES USED</h2>
+<h2>Technologies Used</h2>
 
  - <b>Microsoft 365 Business Premium Trial</b> 
  - <b>Microsoft Entra ID (Azure AD)</b>
  - <b>M365 Admin Center</b>
 
-<h2>ENVIRONMENT</h2>
+<h2>Environment</h2>
 
 - <b>Cloud based (no local VMs)</b> 
 
