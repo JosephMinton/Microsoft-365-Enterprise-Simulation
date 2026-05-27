@@ -56,8 +56,10 @@ Consistent naming conventions support predictable account identifiers, simplifie
   <li>License assignment applied at creation</li>
 </ul>
 <i>Why force a password change on first login?</i>
+<br />
 <i>System generated passwords are often distributed via email, chat, or printed handouts. All of which carry exposure risk. Forcing a change at first login ensures 
 that no one other than the account owner retains a working credential, closing a common attack vector especially relevant during bulk onboarding.</i>
+<br />
 
 <img src="https://i.imgur.com/lFsM1bb.png" alt="Add a user"/>
 <img src="https://i.imgur.com/W3JnPpS.png" alt="Display force change password on first login"/>
@@ -98,6 +100,7 @@ the permissions necessary for their designated function. Rather than assigning G
 </ul>
 
 <i>Why avoid Global Administrator for everyday accounts?</i>
+<br />
 <i>Global Admin is the highest privilege level in a Microsoft 365 tenant. It's basically the equivalent to root access. Assigning it broadly increases the 
 blast radius of any compromised account. Scoped roles like Helpdesk Administrator limit what an attacker can do if credentials are stolen, and enforce 
 accountability by restricting access to only what each role legitimately requires.</i>
@@ -126,6 +129,7 @@ a common enterprise architecture where organizations maintain an IdP outside of 
 </ul>
 
 <i>Why use SSO?</i>
+<br />
 <i>Single Sign-On reduces the total number of credential sets users must manage. Password related help desk tickets routinely account for 20–50% of request volume in large 
 organizations and SSO directly reduces that load. It also consolidates authentication events into a single auditable stream, simplifying anomaly detection and incident response.</i>
 
@@ -137,10 +141,6 @@ organizations and SSO directly reduces that load. It also consolidates authentic
 <ul>
 <li><strong>Provisioned a Microsoft 365 tenant from scratch using publicly available trials, layering in Azure, Entra ID P2, and Purview as lab scope expanded</li>
 <li><strong>Established enterprise standard user provisioning practices including naming conventions, forced password changes, and bulk CSV onboarding</li>
-<li><strong>Configured RBAC using the principle of least privilege, assigning scoped roles rather than broad Global Admin access</li>
-<li><strong>Navigated the relationship between the M365 Admin Center and the Entra ID portal as two layers of the same identity directory</li>
-<li><strong>Integrated Okta as an external IdP via SAML 2.0, simulating a federated enterprise identity architecture</li>
-<li><strong>Established enterprise-standard user provisioning practices including naming conventions, forced password changes, and bulk CSV onboarding</li>
 <li><strong>Configured RBAC using the principle of least privilege, assigning scoped roles rather than broad Global Admin access</li>
 <li><strong>Navigated the relationship between the M365 Admin Center and the Entra ID portal as two layers of the same identity directory</li>
 <li><strong>Integrated Okta as an external IdP via SAML 2.0, simulating a federated enterprise identity architecture</li>
