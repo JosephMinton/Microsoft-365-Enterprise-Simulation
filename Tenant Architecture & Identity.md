@@ -33,9 +33,7 @@ directory exploration, and external identity provider integration via Okta SSO.
 - <b>Cloud based (no local VMs)</b> 
 
 <h2>1. Environment & Admin Provisioning</h2>
-<p>The lab environment was provisioned using the Microsoft 365 Business Premium 30 day trial, which provides 25 user licenses and access to core enterprise services including Entra ID, 
-Intune, and Microsoft Defender for Business. As the lab expanded into advanced security and compliance work, additional trials were layered in separately. Azure and Entra ID activated as those 
-phases of the lab required them.</p>
+<p>The lab environment was provisioned using the Microsoft 365 Business Premium 30 day trial, which provides 25 user licenses and access to core enterprise services including Entra ID, SharePiont, and Exchange. As the lab expanded into advanced security and compliance work, additional trials were layered in separately. Azure, Intune, and Okta activated as those phases of the lab required them.</p>
 <p>This incremental approach reflects how organizations realistically license Microsoft services: purpose built access added per workload, rather than a single all inclusive SKU.</p>
 
 <img src="https://i.imgur.com/LSaweR9.png" alt="M365 Business Premium Trial and 25 available licenses"/>
@@ -65,14 +63,14 @@ that no one other than the account owner retains a working credential, closing a
 <img src="https://i.imgur.com/W3JnPpS.png" alt="Display force change password on first login"/>
 
 <h2>3. Scalability & Bulk Onboarding</h2>
-<p>To simulate enterprise scale provisioning, multiple user accounts were created simultaneously using a CSV bulk import through the Admin Center. 
+<p>To simulate enterprise scale provisioning, multiple user accounts were created simultaneously using a "list of users" bulk import through the Admin Center. 
 This method is standard practice during large onboarding events such as company mergers, seasonal hiring, or system migrations where manual 
 creation would be both time prohibitive and error prone.</p>
 
 <h3>The CSV template included the following fields:</h3>
 <ul>
   <li>Display name</li>
-  <li>Username (UPN)</li>
+  <li>Username</li>
   <li>Initial password</li>
   <li>License assignment flag</li>
 </ul>
@@ -139,8 +137,8 @@ organizations and SSO directly reduces that load. It also consolidates authentic
 
 <h1>Key Takeaways</h1>
 <ul>
-<li><strong>Provisioned a Microsoft 365 tenant from scratch using publicly available trials, layering in Azure, Entra ID P2, and Purview as lab scope expanded</li>
-<li><strong>Established enterprise standard user provisioning practices including naming conventions, forced password changes, and bulk CSV onboarding</li>
+<li><strong>Provisioned a Microsoft 365 tenant from scratch using publicly available trials, layering in Azure, Entra ID, and Okta as lab scope expanded</li>
+<li><strong>Established enterprise standard user provisioning practices including naming conventions, forced password changes, and bulk onboarding</li>
 <li><strong>Configured RBAC using the principle of least privilege, assigning scoped roles rather than broad Global Admin access</li>
 <li><strong>Navigated the relationship between the M365 Admin Center and the Entra ID portal as two layers of the same identity directory</li>
 <li><strong>Integrated Okta as an external IdP via SAML 2.0, simulating a federated enterprise identity architecture</li>
