@@ -1,4 +1,4 @@
-# M365 Enterprise Simulation
+# M365 Enterprise Simulation ☁️
 <h1>Tenant Architecture & Identity</h1>
 
 
@@ -22,7 +22,7 @@ directory exploration, and external identity provider integration via Okta SSO.
 <li><strong>Integrate Okta as an external Identity Provider via SAML 2.0</li>
 </ul>
 
-<h2>Technologies Used</h2>
+<h2>Technologies Used 🧪</h2>
 
  - <b>Microsoft 365 Business Premium Trial</b> 
  - <b>Microsoft Entra ID (Azure AD)</b>
@@ -67,7 +67,7 @@ that no one other than the account owner retains a working credential, closing a
 This method is standard practice during large onboarding events such as company mergers, seasonal hiring, or system migrations where manual 
 creation would be both time prohibitive and error prone.</p>
 
-<h3>The CSV template included the following fields:</h3>
+<h3>The bulk template included the following fields:</h3>
 <ul>
   <li>Display name</li>
   <li>Username</li>
@@ -115,7 +115,7 @@ accountability by restricting access to only what each role legitimately require
 
 <img src="https://i.imgur.com/RGhiJsX.png" alt="Entra ID user list"/>
 
-<h2>6. Advanced Identity Integration: Okta SSO</h2>
+<h2>6. Advanced Identity Integration: Okta SSO 🔒</h2>
 <p>As a capstone to Phase 1, Okta was integrated as an external Identity Provider (IdP) for the Microsoft 365 tenant using SAML 2.0 federation. This configuration reflects 
 a common enterprise architecture where organizations maintain an IdP outside of Microsoft's ecosystem typically to enable SSO across a broader portfolio of SaaS applications.</p>
 
