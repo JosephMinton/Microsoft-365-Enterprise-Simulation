@@ -1,4 +1,4 @@
-<h1><a href="https://www.linkedin.com/in/josephkdminton/">Joseph Minton</a>'s Microsoft 365 Enterprise Lab 🖥</h1>
+<h1><a href="https://www.linkedin.com/in/josephkdminton/">Joseph Minton</a>'s Microsoft 365 Enterprise Lab ☁️</h1>
 
 This project simulates a comprehensive Microsoft 365 enterprise environment, focusing on cloud based identity management, user administration, security governance, and help desk operations. The lab spans the full M365 administrative lifecycle, beginning with the provisioning of a Microsoft 365 Developer Tenant and the configuration of Microsoft Entra ID to manage users, groups, and organizational structure.
 
