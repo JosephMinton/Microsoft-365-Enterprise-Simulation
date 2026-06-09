@@ -1,4 +1,4 @@
-# [M365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
+# [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
 <h1>User Lifecycle & Licensing</h1>
 
 
@@ -33,7 +33,7 @@ preservation during user deletion.
 
 <h2>Environment</h2>
 
-- <b>Exchange Online (cloud-hosted)</b> 
+- <b>Exchange Online (cloud hosted)</b> 
 
 <h2>1. Standardized Licensing & App Management</h2>
 <p>A Business Premium license was assigned to a user with granular app level controls applied. Rather than enabling the full suite by default, unnecessary applications 
@@ -70,7 +70,7 @@ fewer potential entry points. It also establishes a cleaner audit trail and refl
   <li><strong>Security Group</strong>: Used to grant or restrict access to M365 resources. Does not inherently have email capability unless mail enabled. 
 Best used for role based access control.</li>
 </ul>
-<p>The "Allow external senders" setting was enabled on the Distribution Group to permit inbound mail from outside the organization.
+<p>The allow external senders setting was enabled on the Distribution Group to permit inbound mail from outside the organization.
 </p>
 
 <img src="https://i.imgur.com/es4FtsB.png" alt="Business Premium selected, specific apps unchecked"/>
@@ -97,7 +97,7 @@ Best used for role based access control.</li>
 address, and confirming receipt and reply capability from within the shared inbox.</p>
 
 <img src="https://i.imgur.com/0C3w7TF.png" alt=""/>
-<img src="https://i.imgur.com/ChTqqv4.png" alt="Admin account listed under "Read and manage" and "Send as""/>
+<img src="https://i.imgur.com/c0t06DA.png" alt="Admin account listed under Read and manage and Send as"/>
 <img src="https://i.imgur.com/pQehFTj.png" alt="Shared mailbox visible in Admin Center"/>
 
 <h3>Known Shared Mailbox Limitations</h3>
@@ -116,7 +116,7 @@ This allows internal users to locate and email external contacts without needing
 </ul>
 <h3>A second Mail Tip was configured for an internal HR contact (Gwen Stacy) to manage response expectations:</h3>
 <ul>
-  <li>Mail Tip: "Please allow up to 2 business days for a response."</li>
+  <li>Mail Tip: "Please allow up to two business days for a response."</li>
 </ul>
 
 <i>What is a Mail Tip?</i>
@@ -137,7 +137,6 @@ improve communication hygiene across the organization.</i>
 <p>Both resources appear in the organization's address book and can be invited to calendar events, 
 allowing users to reserve physical assets directly from Outlook without a separate booking system.</p>
 
-Screenshot 7 - Resources list: Room and Equipment mailboxes with Capacity and Location details visible
 <img src="https://i.imgur.com/VUzN3l9.png" alt="Capacity and Location details visible"/>
 <img src="https://i.imgur.com/DeIcQhC.png" alt="Room and Equipment mailboxes"/>
 
