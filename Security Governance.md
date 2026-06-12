@@ -112,60 +112,49 @@ Best used for role based access control.</li>
 
 <img src="https://i.imgur.com/es4FtsB.png" />
 
-<h2>3. Shared Resource Management & Mailboxes</h2>
-<p>A Shared Mailbox was created to simulate a centralized support inbox 
-(ServiceDeskSupport@domain.com) accessible by multiple administrators without requiring a dedicated per user license.</p>
-
-<img src="https://i.imgur.com/Hn05fz3.png"/>
-
-
-<h3>Permissions configured:</h3>
+<h2>3. Teams App Setup Policy — Pinned Applications</h2>
+<p>A custom Teams setup policy was configured to standardize the application bar experience for users assigned to the policy. Pinned apps are automatically installed and surfaced in the Teams sidebar for all policy members, ensuring consistent access to essential tools without requiring individual configuration.</p>
+<h3>Applications pinned in the following order:</h3>
 <ul>
-  <li><strong>Full Access</strong> - allows reading and managing all mailbox content</li>
-  <li><strong>Send As</strong> - allows sending email as the shared mailbox address rather than the individual admin's account</li>
+  <li>Activity</li>
+  <li>Chat</li>
+  <li>Teams</li>
+  <li>Calendar</li>
+  <li>Calling</li>
+  <li>OneDrive</li>
+  <li>Calendly</li>
 </ul>
 
-<i>Why use a Shared Mailbox?</i>
+<i>Why standardize pinned apps via policy?</i>
 <br />
 <i>Shared Mailboxes are free up to 50GB and do not require a dedicated license. They are a standard tool in enterprise environments for managing high volume or shared communication channels.</i>
 <br />
 
-<p>End-to-end functionality was validated by accessing the shared mailbox through Outlook, sending a test message to the support 
-address, and confirming receipt and reply capability from within the shared inbox.</p>
+<img src="https://i.imgur.com/Hn05fz3.png"/>
 
-<img src="https://i.imgur.com/0C3w7TF.png" alt=""/>
-<img src="https://i.imgur.com/c0t06DA.png" alt="Admin account listed under Read and manage and Send as"/>
-<img src="https://i.imgur.com/pQehFTj.png" alt="Shared mailbox visible in Admin Center"/>
 
-<h3>Known Shared Mailbox Limitations</h3>
-<p>Shared Mailboxes can exhibit inconsistent behavior in multiuser environments. Common issues include duplicate send events when multiple delegates are active simultaneously, 
-and unreliable email categorization rules. Awareness of these limitations is relevant for troubleshooting and setting user expectations during deployment.
+<h2>4. Collaboration Security & SharePoint Governance</h2>
+<p>A SharePoint Team Site was created for the IT Support team using the Help Desk template. The site was provisioned as a private group — meaning membership is controlled and the site is not discoverable by the broader organization. This configuration is appropriate for teams handling sensitive operational data such as incident tickets, internal runbooks, or escalation procedures.</p>
+
+<h3>Site details:</h3>
+<ul>
+  <li>Site name: Help Desk</li>
+  <li>Type: Private group</li>
+  <li>Description: IT Support Tech Team</li>
+</ul>
+<h3>Team Site vs. Communication Site</h3>
+<ul>
+  <li><strong>Team Site</strong> Designed for a small, defined group of collaborators. All members can be owners with full control. Best for internal team workspaces with restricted access.</li>
+  <li><strong>Communication Site</strong>: Designed for broad audiences — potentially thousands of visitors — with a small number of owners maintaining full control. Best for company-wide announcements or knowledge bases.</li>
+</ul>
+<p>The Help Desk site was created as a Team Site intentionally, limiting visibility and edit access to the IT support group only.
+External sharing was tested by sharing the site with a personal Gmail account, confirming that the permission model correctly grants access to explicitly invited external users while keeping the site private from the general public.
 </p>
-
-<h2>4. External Vendor Integration & Mail Contacts</h2>
-<p>A Mail Contact was created for an external email address to make an outside party discoverable in the organization's company contact directory. 
-This allows internal users to locate and email external contacts without needing to know their full address.</p>
-
-<h3>Configuration included:</h3>
-<ul>
-  <li>External SMTP address mapped to the contact record</li>
-  <li>Custom Mail Tip added: "This is an external consultant; do not share internal passwords."</li>
-</ul>
-<img src="https://i.imgur.com/zViOHQu.png" alt="HR contact Mail Tip: external SMTP address and custom Mail Tip visible"/>
-<h3>A second Mail Tip was configured for an internal HR contact (Gwen Stacy) to manage response expectations:</h3>
-<ul>
-  <li>Mail Tip: "Please allow up to two business days for a response."</li>
-</ul>
 <img src="https://i.imgur.com/EyOyxVI.png" alt="HR contact Mail Tip: Please allow up to two business days for a response (Gwen Stacy)"/>
-<i>What is a Mail Tip?</i>
-<br />
-<i>A Mail Tip is an automated advisory message that appears in Outlook when a user begins composing an email to a specific recipient. They are used to surface important context before 
-a message is sent such as warning about external recipients or alerting users to sensitivity. Mail tips reduce misdirected emails and 
-improve communication hygiene across the organization.</i>
 
 
 
-<h2>5. Physical Resource & Facility Management</h2>
+<h2>5. Mailbox Retention & Data Lifecycle Management</h2>
 <h3>Room and Equipment mailboxes were created to enable calendar based scheduling of physical office assets through Exchange Online.</h3>
 <ul>
   <li><strong>Room Mailbox</strong> - configured for an 11th floor conference room, including capacity and location metadata</li>
