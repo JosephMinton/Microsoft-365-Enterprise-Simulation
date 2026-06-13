@@ -154,6 +154,8 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 </p>
 <img src="https://i.imgur.com/ZjrTzIW.png"/>
 
+<p>For further guidance on configuring SharePoint external sharing policies, see Microsoft's official documentation: https://learn.microsoft.com/en-us/purview/dlp-microsoft-teams?tabs=purview</p>
+
 
 
 <h2>5. Mailbox Retention & Data Lifecycle Management</h2>
@@ -172,29 +174,25 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 <h3>Enterprise context — third-party archiving tools</h3>
 <p>While M365 provides native retention through MRM policies and Purview, many enterprises augment this with third-party solutions such as Mimecast, Proofpoint, or Veritas Enterprise Vault — particularly for long-term legal hold, advanced eDiscovery, or cross-platform archiving requirements. Familiarity with the native tooling provides the foundation for administering or integrating these platforms.</p>
 
-<img src="https://i.imgur.com/hsH8d7b.png" alt=""/>
-
-
+<img src="https://i.imgur.com/rnl2Ndd.png" alt="Default Retention Policy"/>
 
 <h2>6. Conditional Access</h2>
 <p>Conditional Access policy configuration is covered in full in the dedicated Conditional Access subsection following Phase 3. That section documents policy design, conditions, access controls, and enforcement outcomes using the Microsoft Entra ID Conditional Access framework.</p>
 
-<h3>Offboarding steps performed:</h3>
-<ul>
-  <li>User account deletion initiated using Admin Center</li>
-  <li>Business Premium license automatically unassigned and returned to the available pool</li>
-  <li>Email and OneDrive data confirmed as retained for 30 days before permanent deletion</li>
-</ul>
-
-<img src="" alt="Entra ID Conditional Access overview page"/>
+<img src="https://i.imgur.com/hsH8d7b.png" alt="Conditional Access Dashboard"/>
+[Conditional Access]()
 
 <h2>7. Intune — Device Compliance & MDM</h2>
 <p>Microsoft Intune configuration is covered in full in the dedicated Intune subsection following Phase 3. That section documents device enrollment, compliance policies, and integration with Conditional Access for device-based access enforcement.</p>
 
-<img src="" alt="Entra ID Conditional Access overview page"/>
+<img src="https://i.imgur.com/zrVzG7V.png" alt="Intune Dashboard"/>
+[Intune Device Compliance & MDM]()
 
+<h2>8. Information Protection & Data Governance — Purview DLP</h2>
+<p>A Data Loss Prevention (DLP) policy was configured in Microsoft Purview targeting US Financial Data / PCI DSS compliance, designed to detect and act on credit and debit card numbers across the tenant. The policy was applied across multiple locations — Exchange email, SharePoint sites, OneDrive accounts, and Teams chats — providing unified coverage regardless of where sensitive data is shared.</p>
 
-
+<img src="blob:https://imgur.com/d46cedfa-6d4c-4cbe-92bb-91b31057d3ca" alt="Purview Dashboard"/>
+[Purview Data Loss Prevention (DLP)]()
 
 
 <h1>Key Takeaways</h1>
