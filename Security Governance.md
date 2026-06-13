@@ -188,7 +188,7 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 <img src="https://i.imgur.com/zrVzG7V.png" alt="Intune Dashboard"/>
 [Intune Device Compliance & MDM]()
 
-<h2>8. Information Protection & Data Governance — Purview DLP</h2>
+<h2>8. Purview Data Loss Prevention (DLP)</h2>
 <p>A Data Loss Prevention (DLP) policy was configured in Microsoft Purview targeting US Financial Data / PCI DSS compliance, designed to detect and act on credit and debit card numbers across the tenant. The policy was applied across multiple locations — Exchange email, SharePoint sites, OneDrive accounts, and Teams chats — providing unified coverage regardless of where sensitive data is shared.</p>
 
 <img src="blob:https://imgur.com/d46cedfa-6d4c-4cbe-92bb-91b31057d3ca" alt="Purview Dashboard"/>
