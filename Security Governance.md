@@ -42,11 +42,8 @@ This phase also serves as the foundation for the Conditional Access and Intune s
 </table>
 
 <h2>1. Advanced Identity & SSO Integration</h2>
-<p>The Okta SAML 2.0 integration was initially configured and documented in Phase 1, Section 1.6. The screenshots below provide supplementary 
-evidence of the integration in an operational state — specifically the Tenant ID retrieval from Azure, user assignment within Okta, and the resulting account 
-status across both identity systems.
-To complete the Okta integration, the tenant's unique identifier was retrieved from the Azure portal and supplied to Okta during the SAML configuration process. 
-This handshake establishes the trust relationship between Okta as the Identity Provider and Microsoft 365 as the Service Provider.
+<p>The Okta SAML 2.0 integration was initially configured and documented in Phase 1, Section 1.6. The screenshots below provide supplementary evidence of the integration in an operational state — specifically the Tenant ID retrieval from Azure, user assignment within Okta, and the resulting account status across both identity systems.</p>
+<h3>In simple terms, Okta acts as the gatekeeper — users log into Okta once and get access to Microsoft 365 without needing a separate set of credentials. Setting this up requires Microsoft 365 to trust Okta, which is done by sharing a unique identifier called a Tenant ID.
 </h3>
 <img src="https://i.imgur.com/SUe9Cff.png" />
 <p>Following configuration, the Office 365 application within Okta was assigned directly to the lab admin account (Joseph Minton / JosephMinton@JosephMintonTech.onmicrosoft.com). 
@@ -127,7 +124,7 @@ All message manipulation capabilities were disabled for guest users:</h4>
 
 <i>Why standardize pinned apps via policy?</i>
 <br />
-<i>Shared Mailboxes are free up to 50GB and do not require a dedicated license. They are a standard tool in enterprise environments for managing high volume or shared communication channels.</i>
+<i>When every user configures their own Teams sidebar, you end up with inconsistency across the org — some people missing key tools, others cluttered with apps they don't need. Pinning apps through an admin policy gives everyone the same starting point, reduces onboarding friction, and cuts down on "where do I find X" support tickets. Adding a third-party app like Calendly also shows that Teams can be extended beyond Microsoft's own toolset to fit how a team actually works.</i>
 <br />
 
 <img src="https://i.imgur.com/0j4pSDM.png"/>
@@ -141,8 +138,10 @@ All message manipulation capabilities were disabled for guest users:</h4>
 <h3>Site details:</h3>
 <ul>
   <li>Site name: Help Desk</li>
+  <li>Template: Team Site</li>
   <li>Type: Private group</li>
   <li>Description: IT Support Tech Team</li>
+  <li>URL: [IT Support Tech Team](https://josephmintontech.sharepoint.com/sites/HelpDesk/SitePages/ITHelpdeskHome.aspx?e=4%3AKBySh0&web=1&at=9)</li>
 </ul>
 <h3>Team Site vs. Communication Site</h3>
 <ul>
@@ -153,8 +152,6 @@ All message manipulation capabilities were disabled for guest users:</h4>
 External sharing was tested by sharing the site with a personal Gmail account, confirming that the permission model correctly grants access to explicitly invited external users while keeping the site private from the general public.
 </p>
 <img src="https://i.imgur.com/ZjrTzIW.png"/>
-
-<p>For further guidance on configuring SharePoint external sharing policies, see Microsoft's official documentation: https://learn.microsoft.com/en-us/purview/dlp-microsoft-teams?tabs=purview</p>
 
 
 
@@ -189,7 +186,7 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 [Intune Device Compliance & MDM]()
 
 <h2>8. Purview Data Loss Prevention (DLP)</h2>
-<p>A Data Loss Prevention (DLP) policy was configured in Microsoft Purview targeting US Financial Data / PCI DSS compliance, designed to detect and act on credit and debit card numbers across the tenant. The policy was applied across multiple locations — Exchange email, SharePoint sites, OneDrive accounts, and Teams chats — providing unified coverage regardless of where sensitive data is shared.</p>
+<p>A Data Loss Prevention policy was configured in Microsoft Purview to detect sensitive financial data — specifically credit and debit card numbers — across the tenant. The policy was built around the US Financial Data and PCI DSS compliance template and applied across Exchange email, SharePoint, OneDrive, and Teams, meaning any attempt to share card data in any of those locations gets flagged automatically. When a user tries to send a credit card number via email, a Policy Tip appears in real time warning them the content may be blocked — stopping the leak before it happens. Newly created DLP policies can take up to 2 hours to sync across locations, or up to 24 hours when scoped to specific users or groups.</p>
 
 <img src="blob:https://imgur.com/d46cedfa-6d4c-4cbe-92bb-91b31057d3ca" alt="Purview Dashboard"/>
 [Purview Data Loss Prevention (DLP)]()
