@@ -1,5 +1,5 @@
 # [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
-<h1>Security & Governance</h1>
+<h1>Security & Governance 🔒</h1>
 
 
 
