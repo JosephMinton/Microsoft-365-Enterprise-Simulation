@@ -77,7 +77,7 @@ A custom authentication strength named Modern MFA was created in Entra ID, defin
   <li>Temporary Access Pass (one-time use)</li>
 </ul>
 
-<img src="" />
+<img src="https://i.imgur.com/rSYYuWx.png" />
 
 
 <h2>2.2 Require Strong MFA for All Users</h2>
@@ -93,7 +93,7 @@ accessing any cloud application. The CA-Break-Glass group was excluded to preser
   <li><strong>State</strong>: On</li>
 </ul>
 
-<img src="" />
+<img src="https://i.imgur.com/LqZ5Iua.png" />
 
 
 <h2>2.3 Block Legacy Authentication</h2>
@@ -107,7 +107,7 @@ Attackers frequently target these protocols specifically because they bypass MFA
   <li><strong>Grant</strong>: Block access</li>
 </ul>
 
-<img src=""/>
+<img src="https://i.imgur.com/I9PhWQU.png"/>
 
 
 <h2>2.4 Secure Device Registration</h2>
@@ -126,7 +126,7 @@ registration ensures that only authenticated users can enroll devices — preven
 <i>Instead of targeting a specific application, this policy targets a user action — the act of registering a device. This is a different configuration 
 path than a standard app-based policy and is easy to miss. Switching "Cloud apps" to "User actions" in the Target resources dropdown reveals this option.</i>
 
-<img src="" alt=""/>
+<img src="https://i.imgur.com/hn4SvD3.png" alt=""/>
 
 
 <h2>2.5 Block Device Code Flow</h2>
@@ -140,7 +140,7 @@ businesses do not need this flow and blocking it removes the attack surface enti
   <li><strong>Grant</strong>: Block access</li>
 </ul>
 
-<img src="" alt=""/>
+<img src="https://i.imgur.com/hxeUvvY.png" alt=""/>
 
 <h2>Step 3: Persona-Based Policies</h2>
 <p>Conditional Access uses additive logic — if a user belongs to multiple groups, the strictest policy that applies to them wins. 
@@ -157,7 +157,7 @@ Additionally, admins are required to be on a company-owned device.</p>
   <li><strong>Grant</strong>: Require authentication strength — Phishing-resistant MFA</li>
 </ul>
 
-<img src="" alt=""/>
+<img src="https://i.imgur.com/uV4Glty.png" alt=""/>
 
 <h2>3.2 Protect Staff with Personal Smartphones</h2>
 <p>Staff are allowed to use personal smartphones to access company resources, provided those devices meet compliance requirements. This policy was created 
@@ -171,7 +171,7 @@ For example, staff can use a personal phone that passes compliance checks, while
   <li><strong>Grant</strong>: Require device to be marked as compliant</li>
 </ul>
 
-<img src="" alt=""/>
+<img src="https://i.imgur.com/iTU2jSY.png" alt=""/>
 
 
 <h2>3.3 Restrict Guest Access to Browser Only</h2>
@@ -185,7 +185,7 @@ are blocked. This prevents guests from syncing company files to their personal u
   <li><strong>Grant</strong>: Block access</li>
 </ul>
 
-<img src="" alt=""/>
+<img src="https://i.imgur.com/jQjkEzD.png" alt=""/>
 
 <h2>Step 4: Managing Exceptions — Temporary Access Pass</h2>
 <p>Real-world environments require exceptions. A user might lose their phone, forget their security key, or need emergency access. The solution is a 
@@ -207,8 +207,8 @@ workaround or weakening the policy, a one-time-use TAP was issued with a one hou
 <i>Creating a permanent policy exception for one user — even a CEO — introduces a persistent security gap. A TAP expires after one use, meaning the security 
 perimeter is restored the moment the user signs in. It is the right tool for temporary access issues and avoids the risk of forgotten exclusions accumulating over time.</i>
 
-<img src="" alt=""/>
-<img src="" alt=""/>
+<img src="https://i.imgur.com/7QTD1Tr.png" alt=""/>
+<img src="https://i.imgur.com/bo0zJTw.png" alt=""/>
 
 <h2>Step 5: Periodic Access Reviews</h2>
 <p>Exclusion groups like CA-Break-Glass are a necessary part of any Conditional Access deployment, but they create a permanent gap in security 
