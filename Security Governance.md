@@ -87,7 +87,7 @@ Turning these off ensures that messages cannot be edited or deleted across the o
 
 <img src="https://i.imgur.com/9PUMo8A.png" />
 
-<h3>Guest Access — Messaging Settings</h3>
+<h3>Guest Access - Messaging Settings</h3>
 <h4>Guest access was left enabled to support B2B collaboration scenarios, but heavily restricted at the feature level. 
 All editing and deleting options were turned off for guest users:</h4>
 
@@ -102,7 +102,7 @@ All editing and deleting options were turned off for guest users:</h4>
 <img src="https://i.imgur.com/eOSIQWf.png" />
 
 
-<h3>Guest Access — Meeting Settings</h3>
+<h3>Guest Access - Meeting Settings</h3>
 <h4>Screen sharing was explicitly disabled for guest participants in meetings. This prevents external users from presenting content to internal audiences without prior authorization.</h4>
 
 <ul>
@@ -113,7 +113,7 @@ All editing and deleting options were turned off for guest users:</h4>
 
 <img src="https://i.imgur.com/CtFe80b.png" />
 
-<h2>3. Teams App Setup Policy — Pinned Applications</h2>
+<h2>3. Teams App Setup Policy - Pinned Applications</h2>
 <p>A custom Teams setup policy was configured to standardize the application bar experience for users assigned to the policy. Pinned apps are automatically installed and surfaced in the Teams sidebar for all policy members, ensuring consistent access to essential tools without requiring individual setup.</p>
 <h3>Applications pinned in the following order:</h3>
 <ul>
@@ -160,7 +160,7 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 
 
 <h2>5. Mailbox Retention & Data Lifecycle Management</h2>
-<p>A retention policy was applied to a user mailbox via the Exchange Admin Center. The Default MRM Policy was selected — Microsoft's built-in collection of retention tags applied to a mailbox at the folder level, governing how long items are retained before being moved to archive or permanently deleted.</p>
+<p>A retention policy was applied to a user mailbox via the Exchange Admin Center. The Default MRM Policy was selected. It is Microsoft's built in collection of retention tags applied to a mailbox at the folder level, governing how long items are retained before being moved to archive or permanently deleted.</p>
 <h3>Policy applied:</h3>
 <ul>
   <li><strong>Retention policy</strong>: Default MRM Policy</li>
@@ -170,27 +170,27 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 
 <i>Why does retention matter?</i>
 <br />
-<i>Without a retention policy, user mailboxes grow indefinitely on the local client — eventually causing performance degradation or machine crashes. Retention policies automatically move older emails to a cloud archive, keeping the local mailbox lean while preserving data for legal, compliance, or business continuity purposes. The archive is accessible to the user at any time through Outlook or the web client.</i>
+<i>Without a retention policy, user mailboxes grow indefinitely on the local client which could eventually cause performance degradation or machine crashes. Retention policies automatically move older emails to a cloud archive, keeping the local mailbox lean while preserving data for legal, compliance, or business continuity purposes. The archive is accessible to the user at any time through Outlook or the web client.</i>
 <br />
-<h3>Enterprise context — third-party archiving tools</h3>
-<p>While M365 provides native retention through MRM policies and Purview, many enterprises augment this with third-party solutions such as Mimecast, Proofpoint, or Veritas Enterprise Vault — particularly for long-term legal hold, advanced eDiscovery, or cross-platform archiving requirements. Familiarity with the native tooling provides the foundation for administering or integrating these platforms.</p>
+<h3>Enterprise context</h3>
+<p>While Microsoft 365 provides native retention through MRM policies and Purview, many enterprises augment this with third party solutions such as Mimecast, Proofpoint, or Veritas Enterprise Vault - particularly for long-term legal hold, advanced eDiscovery, or cross-platform archiving requirements. Familiarity with the native tooling provides the foundation for administering or integrating these platforms.</p>
 
 <img src="https://i.imgur.com/rnl2Ndd.png" alt="Default Retention Policy"/>
 
 <h2>6. Conditional Access</h2>
-<p>Conditional Access policy configuration is covered in full in the dedicated Conditional Access subsection following Phase 3. That section documents policy design, conditions, access controls, and enforcement outcomes using the Microsoft Entra ID Conditional Access framework.</p>
+<p>Conditional Access policy configuration is covered in full in the dedicated Conditional Access subsection following Phase 3. That section documents policy design, conditions, access controls, and enforcement outcomes using the Microsoft Entra ID Conditional Access framework. More on this on a later date.</p>
 
 <img src="https://i.imgur.com/hsH8d7b.png" alt="Conditional Access Dashboard"/>
 [Conditional Access]()
 
-<h2>7. Intune — Device Compliance & MDM</h2>
-<p>Microsoft Intune configuration is covered in full in the dedicated Intune subsection following Phase 3. That section documents device enrollment, compliance policies, and integration with Conditional Access for device-based access enforcement.</p>
+<h2>7. Intune - Device Compliance & MDM</h2>
+<p>Microsoft Intune configuration is covered in full in the dedicated Intune subsection following Phase 3. That section documents device enrollment, compliance policies, and integration with Conditional Access for device based access enforcement. More on this on a later date.</p>
 
 <img src="https://i.imgur.com/zrVzG7V.png" alt="Intune Dashboard"/>
 [Intune Device Compliance & MDM]()
 
 <h2>8. Purview Data Loss Prevention (DLP)</h2>
-<p>A Data Loss Prevention policy was configured in Microsoft Purview to detect sensitive financial data — specifically credit and debit card numbers — across the tenant. The policy was built around the US Financial Data and PCI DSS compliance template and applied across Exchange email, SharePoint, OneDrive, and Teams, meaning any attempt to share card data in any of those locations gets flagged automatically. When a user tries to send a credit card number via email, a Policy Tip appears in real time warning them the content may be blocked — stopping the leak before it happens. Newly created DLP policies can take up to 2 hours to sync across locations, or up to 24 hours when scoped to specific users or groups.</p>
+<p>A Data Loss Prevention policy was configured in Microsoft Purview to detect sensitive financial data, specifically credit and debit card numbers across the tenant. The policy was built around the US Financial Data and PCI DSS compliance template and applied across Exchange email, SharePoint, OneDrive, and Teams, meaning any attempt to share card data in any of those locations gets flagged automatically. When a user tries to send a credit card number via email, a Policy Tip appears in real time warning and stopping the leak before it happens. More on this on a later date.</p>
 
 <img src="blob:https://imgur.com/d46cedfa-6d4c-4cbe-92bb-91b31057d3ca" alt="Purview Dashboard"/>
 [Purview Data Loss Prevention (DLP)]()
@@ -198,10 +198,10 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 
 <h1>Key Takeaways</h1>
 <ul>
-<li><strong>Validated the Okta SAML SSO integration end-to-end, documenting the Tenant ID handshake, user assignment, and dual-account federation state</li>
+<li><strong>Validated the Okta SAML SSO integration, documenting the Tenant ID handshake, user assignment, and dual account federation trust</li>
 <li><strong>Configured layered Teams governance across internal messaging policies and guest access settings, restricting message manipulation and screen sharing</li>
-<li><strong>Standardized the Teams app bar experience via a custom setup policy including a third-party app integration (Calendly)</li>
+<li><strong>Standardized the Teams app bar experience via a custom setup policy including a third party app integration (Calendly)</li>
 <li><strong>Provisioned a private SharePoint Team Site for the IT support group with controlled membership and validated external sharing behavior</li>
 <li><strong>Applied the Default MRM Policy to a user mailbox, establishing automated data lifecycle management and cloud archiving</li>
-<li><strong>Established the Conditional Access and Intune frameworks as dedicated subsections within Phase 3</li>
+<li><strong>Established Conditional Access, Intune, Purview frameworks as dedicated subsections</li>
 </ul>
