@@ -83,7 +83,8 @@ one for internal employees and one for external guests, ensuring communication s
 <br />
 <i>Allowing users to delete or edit sent messages undermines the integrity of communication records. In regulated industries, chat logs may be subject to 
 compliance holds or eDiscovery requests. if the ability of deletion was permitted, there would likely be gaps within the audit trail.
-Turning these off ensures that messages cannot be edited or deleted across the organization.<\i>
+Turning these off ensures that messages cannot be edited or deleted across the organization.</i>
+<br />
 
 <img src="https://i.imgur.com/9PUMo8A.png" />
 
