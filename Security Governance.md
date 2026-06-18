@@ -6,7 +6,7 @@
 <h2>Description</h2>
 Phase 3 focuses on hardening the Microsoft 365 environment built in Phases 1 and 2. Security controls were applied across identity,
 messaging, collaboration, and data layers. This defense in depth approach is often seen in enterprise IT and security operations. 
-This phase also serves as the foundation for the Conditional Access, Intune amd Purview subsections that follow.
+This phase also serves as the foundation for the Conditional Access, Intune and Purview subsections that follow.
 <br />
 
 <h2>Objective</h2>
@@ -39,10 +39,6 @@ This phase also serves as the foundation for the Conditional Access, Intune amd 
     <td><b>Conditional Access (Entra ID)</b></td>
     <td><b>Microsoft Intune</b></td>
   </tr>
-  <tr>
-    <td><b>Purview</b></td>
-    <td><b></b></td>
-  </tr>
 </table>
 
 <h2>1. Advanced Identity & SSO Integration</h2>
@@ -51,7 +47,7 @@ This phase also serves as the foundation for the Conditional Access, Intune amd 
 </h3>
 <img src="https://i.imgur.com/SUe9Cff.png" />
 <p>Following configuration, the Office 365 application within Okta was assigned directly to the lab admin account. 
-The user was assigned individually for this demo. In a real work environment, this would typically be done by group to save time and scale easily.<\p>
+The user was assigned individually for this demo. In a real work environment, this would typically be done by group to save time and scale easily.</p>
 
 <p>The Okta dashboard shows two accounts for the same person. The Gmail account is still pending setup, while the Microsoft 
 365 account is fully active. This shows that both systems are successfully connected and communicating with each other.
@@ -63,21 +59,11 @@ The user was assigned individually for this demo. In a real work environment, th
 
 
 <h2>2. Teams Governance - Messaging & Guest Access Policies</h2>
-<p>Microsoft Teams was configured to control who can communicate with whom. Two types of policies were set up: 
-one for internal employees and one for external guests, ensuring communication stays within appropriate boundaries for a corporate environment.al participants can do when invited into the tenant.
+<p>Microsoft Teams was configured to control who can communicate with whom. Two types of policies were set up. One for internal employees and one for external guests, ensuring communication stays within appropriate boundaries for a corporate environment.
 </p>
 
 <h3>Internal Messaging Policy</h3>
 <h4>A custom messaging policy was configured with the following restrictions applied to internal users:</h4>
-
-<ul>
-  <li><strong>Delete sent messages</strong> - Off</li>
-  <li><strong>Edit sent messages</strong> - Off</li>
-  <li><strong>Delete messages sent by bots</strong> - Off</li>
-  <li><strong>Chat</strong> - Off</li>
-  <li><strong>Giphy, Memes, Stickers</strong> - Off</li>
-  <li><strong>URL previews</strong> - Off</li>
-</ul>
 
 <i>Why restrict message deletion and editing?</i>
 <br />
@@ -92,13 +78,7 @@ Turning these off ensures that messages cannot be edited or deleted across the o
 <h4>Guest access was left enabled to support B2B collaboration scenarios, but heavily restricted at the feature level. 
 All editing and deleting options were turned off for guest users:</h4>
 
-<ul>
-  <li><strong>Edit sent messages</strong> - Off</li>
-  <li><strong>Delete sent messages</strong> - Off</li>
-  <li><strong>Delete chat</strong> - Off</li>
-  <li><strong>Chat</strong> - Off</li>
-  <li><strong>Giphy, Memes, Stickers</strong> - Off</li>
-</ul>
+<h5>All message editing, deletion, and rich media features were disabled for both internal users and guests.</h5>
 
 <img src="https://i.imgur.com/eOSIQWf.png" />
 
@@ -146,7 +126,7 @@ All editing and deleting options were turned off for guest users:</h4>
   <li>Template: Team Site</li>
   <li>Type: Private group</li>
   <li>Description: IT Support Tech Team</li>
-  <li>URL: [IT Support Tech Team](https://josephmintontech.sharepoint.com/sites/HelpDesk/SitePages/ITHelpdeskHome.aspx?e=4%3AKBySh0&web=1&at=9)</li>
+  <li>URL: <a href="https://josephmintontech.sharepoint.com/sites/HelpDesk/SitePages/ITHelpdeskHome.aspx?e=4%3AKBySh0&web=1&at=9">IT Support Tech Team</a></li>
 </ul>
 <h3>Team Site vs. Communication Site</h3>
 <ul>
@@ -173,28 +153,26 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 <br />
 <i>Without a retention policy, user mailboxes grow indefinitely on the local client which could eventually cause performance degradation or machine crashes. Retention policies automatically move older emails to a cloud archive, keeping the local mailbox lean while preserving data for legal, compliance, or business continuity purposes. The archive is accessible to the user at any time through Outlook or the web client.</i>
 <br />
-<h3>Enterprise context</h3>
-<p>While Microsoft 365 provides native retention through MRM policies and Purview, many enterprises augment this with third party solutions such as Mimecast, Proofpoint, or Veritas Enterprise Vault - particularly for long-term legal hold, advanced eDiscovery, or cross-platform archiving requirements. Familiarity with the native tooling provides the foundation for administering or integrating these platforms.</p>
 
 <img src="https://i.imgur.com/rnl2Ndd.png" alt="Default Retention Policy"/>
 
 <h2>6. Conditional Access</h2>
-<p>Conditional Access policy configuration is covered in full in the dedicated Conditional Access subsection following Phase 3. That section documents policy design, conditions, access controls, and enforcement outcomes using the Microsoft Entra ID Conditional Access framework. More on this on a later date.</p>
+<p>Conditional Access policy configuration is covered in full in the dedicated Conditional Access subsection following Phase 3. That section documents policy design, conditions, access controls, and enforcement outcomes using the Microsoft Entra ID Conditional Access framework. Configuration details are covered in the dedicated subsection following Phase 3.</p>
 
 <img src="https://i.imgur.com/hsH8d7b.png" alt="Conditional Access Dashboard"/>
-[Conditional Access]()
+<!-- [Conditional Access]() -->
 
 <h2>7. Intune - Device Compliance & MDM</h2>
-<p>Microsoft Intune configuration is covered in full in the dedicated Intune subsection following Phase 3. That section documents device enrollment, compliance policies, and integration with Conditional Access for device based access enforcement. More on this on a later date.</p>
+<p>Microsoft Intune configuration is covered in full in the dedicated Intune subsection following Phase 3. That section documents device enrollment, compliance policies, and integration with Conditional Access for device based access enforcement. Configuration details are covered in the dedicated subsection following Phase 3.</p>
 
 <img src="https://i.imgur.com/zrVzG7V.png" alt="Intune Dashboard"/>
-[Intune Device Compliance & MDM]()
+<!-- [Intune Device Compliance & MDM]() -->
 
 <h2>8. Purview Data Loss Prevention (DLP)</h2>
-<p>A Data Loss Prevention policy was configured in Microsoft Purview to detect sensitive financial data, specifically credit and debit card numbers across the tenant. The policy was built around the US Financial Data and PCI DSS compliance template and applied across Exchange email, SharePoint, OneDrive, and Teams, meaning any attempt to share card data in any of those locations gets flagged automatically. When a user tries to send a credit card number via email, a Policy Tip appears in real time warning and stopping the leak before it happens. More on this on a later date.</p>
+<p>A Data Loss Prevention policy was configured in Microsoft Purview to detect sensitive financial data, specifically credit and debit card numbers across the tenant. The policy was built around the US Financial Data and PCI DSS compliance template and applied across Exchange email, SharePoint, OneDrive, and Teams, meaning any attempt to share card data in any of those locations gets flagged automatically. When a user tries to send a credit card number via email, a Policy Tip appears in real time warning and stopping the leak before it happens. Configuration details are covered in the dedicated subsection following Phase 3.</p>
 
-<img src="blob:https://imgur.com/d46cedfa-6d4c-4cbe-92bb-91b31057d3ca" alt="Purview Dashboard"/>
-[Purview Data Loss Prevention (DLP)]()
+<img src="https://i.imgur.com/A3uwt7g.png" alt="Purview Dashboard"/>
+<!-- [Purview Data Loss Prevention (DLP)]() -->
 
 
 <h1>Key Takeaways</h1>
