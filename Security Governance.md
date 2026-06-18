@@ -63,7 +63,6 @@ The user was assigned individually for this demo. In a real work environment, th
 </p>
 
 <h3>Internal Messaging Policy</h3>
-<h4>A custom messaging policy was configured with the following restrictions applied to internal users:</h4>
 
 <i>Why restrict message deletion and editing?</i>
 <br />
@@ -72,13 +71,15 @@ compliance holds or eDiscovery requests. if the ability of deletion was permitte
 Turning these off ensures that messages cannot be edited or deleted across the organization.</i>
 <br />
 
+<h4>A custom messaging policy was configured with the following restrictions applied to internal users.</h4>
+
 <img src="https://i.imgur.com/9PUMo8A.png" />
 
 <h3>Guest Access - Messaging Settings</h3>
 <h4>Guest access was left enabled to support B2B collaboration scenarios, but heavily restricted at the feature level. 
 All editing and deleting options were turned off for guest users:</h4>
 
-<h5>All message editing, deletion, and rich media features were disabled for both internal users and guests.</h5>
+<h4>All message editing, deletion, and rich media features were disabled for both internal users and guests.</h4>
 
 <img src="https://i.imgur.com/eOSIQWf.png" />
 
