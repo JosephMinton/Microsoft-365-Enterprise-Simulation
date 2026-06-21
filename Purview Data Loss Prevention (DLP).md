@@ -4,7 +4,7 @@
 
 
 <h2>Description</h2>
-Microsoft Purview brings together data governance, security, and compliance tooling in a single portal — covering 
+Microsoft Purview brings together data governance, security, and compliance tooling in a single portal - covering 
 everything from Data Loss Prevention to eDiscovery to Insider Risk Management. This section focuses specifically 
 on DLP: building a policy that detects sensitive financial data anywhere it might be 
 shared across the tenant, and proving that detection actually works in practice rather than just on paper.
@@ -41,135 +41,68 @@ shared across the tenant, and proving that detection actually works in practice 
   </tr>
 </table>
 
-<h2>1. Intune Admin Center Overview</h2>
-<p>The Microsoft Intune Admin Center serves as the central management hub for all enrolled devices, apps, and policies. The dashboard provides an at-a-glance view of the environment's health — including 
-enrollment status, compliance state, configuration conflicts, and app installation results.</p>
-<h3>At the time of documentation, the lab environment reflected:
-</h3>
+<h2>1. Navigating to Data Loss Prevention</h2>
+<p>The Microsoft Purview portal consolidates a wide range of compliance and governance solutions under a single navigation menu - Audit, Compliance Manager, Data Catalog, Data Loss Prevention, eDiscovery, Information Protection, Insider Risk Management, and more. Data Loss Prevention was selected from the Solutions menu to begin building a policy targeting sensitive financial data.</p>
+
+<img src="https://i.imgur.com/EMZzEct.png" />
+
+
+
+<h2>2. Building the PCI DSS Policy</h2>
+<p>A new DLP policy was created using Microsoft's built-in PCI Data Security Standard (PCI DSS) template, which is purpose-built to detect the presence of credit and debit card numbers. Rather than writing detection rules from scratch, the template provides pre-configured rules that align with payment card industry compliance requirements.</p>
+<h3>PCI Data Security Standard (PCI DSS) - Policy Summary</h3>
 
 <ul>
-  <li><strong>5 Windows devices enrolled</strong></li>
-  <li>3 devices compliant, 2 not yet evaluated<strong></strong></li>
-  <li><strong>No enrollment failures in the last 7 days</strong></li>
-  <li><strong>No app installation failures</strong></li>
-  <li><strong>No configuration policy conflicts</strong></li>
+  <li><strong>Information to protect</strong>: PCI Data Security Standard (PCI DSS)</li>
+  <li><strong>Locations: Exchange email, SharePoint sites, OneDrive accounts, Teams chat and channel messages, On-premises repositories</strong></li>
+  <li><strong>Mode</strong>: Turn the policy on immediately</li>
+  <li><strong>Rules</strong>: Low volume of content detected (PCI DSS), High volume of content detected (PCI DSS)</li>
 </ul>
 
-<img src="" />
+<p>Covering all five locations in a single policy ensures that sensitive card data is caught wherever it might be shared - whether through an email, a SharePoint document, a synced OneDrive file, or a Teams message - rather than requiring separate policies per platform.</p>
+
+<img src="https://i.imgur.com/3XK0ofD.png" />
+
+<h3>Low volume vs. high volume detection rules</h3>
+<p>DLP policies can apply different actions depending on how much sensitive data is detected in a single piece of content. A low volume match - such as one credit card number - might trigger a warning, while a high volume match - such as a spreadsheet containing hundreds of card numbers - can trigger a stricter response like an outright block. This tiered approach avoids over-blocking minor, low-risk instances while still catching serious bulk exposure.</p>
 
 
 
-<h2>2. Tenant & Device Settings Configuration</h2>
-
-<h3>Before any device can be enrolled, Entra ID must be configured to allow it. Device settings were accessed through the Entra Admin Center under Devices and configured as follows:</h3>
-
+<h2>3. Validating the Policy - Outlook Policy Tip</h2>
+<p>To confirm the policy was actually working and not just configured on paper, a test email containing a fabricated credit card number was sent between two lab accounts. Outlook flagged the message immediately, surfacing a Policy Tip that identified two separate issues with the message.</p>
+<h3>Issues flagged by the Policy Tip:</h3>
 <ul>
-  <li><strong>Users may join devices to Microsoft Entra</strong>: All</li>
-  <li><strong>Users may register their devices with Microsoft Entra: All</strong></li>
-  <li><strong>Require MFA to register or join devices</strong>: Yes</li>
-  <li><strong>Maximum number of devices per user</strong>: 20 (reduced from the default of 50)</li>
+  <li>Message was sent to people outside the organization</li>
+  <li>Message contained sensitive information: Credit Card Number</li>
 </ul>
 
-<i>Why reduce the device limit?</i>
+<img src="https://i.imgur.com/6WpQiXA.png" />
+
+<i>Why does real-time validation matter?</i>
 <br />
-<i>The default limit of 50 devices per user is far more than any individual needs and can mask unauthorized enrollments. 
-Setting a realistic limit — such as 20 — makes it easier to detect anomalies and prevents a compromised account from registering a large number of rogue devices.</i>
-<br />
-
-
-<img src="" />
-
-<img src="" />
-
-
-
-<h2>3. Manual Device Enrollment — Entra ID Join</h2>
-<p>A custom Teams setup policy was configured to standardize the application bar experience for users assigned to the policy. Pinned apps are automatically installed and surfaced in the Teams sidebar for all policy members, ensuring consistent access to essential tools without requiring individual setup.</p>
-<h3>Applications pinned in the following order:</h3>
-<ul>
-  <li>Activity</li>
-  <li>Chat</li>
-  <li>Teams</li>
-  <li>Calendar</li>
-  <li>Calling</li>
-  <li>OneDrive</li>
-  <li>Calendly</li>
-</ul>
-
-<i>Why standardize pinned apps via policy?</i>
-<br />
-<i>When every user configures their own Teams sidebar, you end up with inconsistency across the org. Some people missing key tools, while others cluttered with apps they don't need. Pinning apps through an admin policy gives everyone the same starting point, reduces onboarding friction, and cuts down on "where do I find X" support tickets. Adding a third party app like Calendly also shows that Teams can be extended beyond Microsoft's own toolset to fit how a team desires to work.</i>
+<i>A DLP policy that exists only in the admin portal but has never been tested against real content is an assumption, not a proven control. Triggering an actual Policy Tip confirms the detection engine is live, correctly scoped to the right locations, and surfacing the right information to end users at the moment of risk - not just after an audit finds the leak.</i>
 <br />
 
-<img src="https://i.imgur.com/0j4pSDM.png"/>
 
 
-<h2>4. Collaboration Security & SharePoint Governance</h2>
-<p>A SharePoint Team Site was created for the IT Support team using a Help Desk template. The site was provisioned as a private group, meaning membership is controlled and the site is not discoverable by the broader part of the organization. This configuration is appropriate for teams handling sensitive operational data such as incident tickets, internal runbooks, or escalation procedures.</p>
-
-<img src="https://i.imgur.com/qKL3FTT.png"/>
-
-<h3>Site details:</h3>
+<h2>4. Policy Propagation Timing</h2>
+<h3>Newly created DLP policies do not take effect instantly across every location in the tenant. Sync time varies depending on scope:</h3>
 <ul>
-  <li>Site name: Help Desk</li>
-  <li>Template: Team Site</li>
-  <li>Type: Private group</li>
-  <li>Description: IT Support Tech Team</li>
-  <li>URL: <a href="https://josephmintontech.sharepoint.com/sites/HelpDesk/SitePages/ITHelpdeskHome.aspx?e=4%3AKBySh0&web=1&at=9">IT Support Tech Team</a></li>
+  <li><strong>Tenant-wide policies</strong>: Up to 2 hours to fully propagate</li>
+  <li><strong>Policies scoped to specific users or groups</strong>: Up to 24 hours to fully propagate</li>
 </ul>
-<h3>Team Site vs. Communication Site</h3>
-<ul>
-  <li><strong>Team Site</strong> Designed for a small, defined group of collaborators. All members can be owners with full control. Best for internal team workspaces with restricted access.</li>
-  <li><strong>Communication Site</strong>: Designed for public audiences including thousands of visitors with a small number of owners maintaining full control. Best for company wide announcements or knowledge bases.</li>
-</ul>
-<p>The Help Desk site was created as a Team Site intentionally, limiting visibility and edit access to the IT support group only.
-External sharing was tested by sharing the site with a personal Gmail account, confirming that the permission model correctly grants access to explicitly invited external users while keeping the site private from the general public.
+
+
+<h3>Operational takeaway</h3>
+<p>This delay is an important consideration during testing - if a policy doesn't appear to be working immediately after creation, the first step should be checking how much time has passed, not assuming the configuration is wrong. Planning around this propagation window also matters for incident response timelines in a live environment.
 </p>
-<img src="https://i.imgur.com/ZjrTzIW.png"/>
 
-
-
-<h2>5. Mailbox Retention & Data Lifecycle Management</h2>
-<p>A retention policy was applied to a user mailbox via the Exchange Admin Center. The Default MRM Policy was selected. It is Microsoft's built in collection of retention tags applied to a mailbox at the folder level, governing how long items are retained before being moved to archive or permanently deleted.</p>
-<h3>Policy applied:</h3>
-<ul>
-  <li><strong>Retention policy</strong>: Default MRM Policy</li>
-  <li><strong>Sharing policy</strong>: Default Sharing Policy</li>
-  <li><strong>Role assignment policy</strong>: Default Role Assignment Policy</li>
-</ul>
-
-<i>Why does retention matter?</i>
-<br />
-<i>Without a retention policy, user mailboxes grow indefinitely on the local client which could eventually cause performance degradation or machine crashes. Retention policies automatically move older emails to a cloud archive, keeping the local mailbox lean while preserving data for legal, compliance, or business continuity purposes. The archive is accessible to the user at any time through Outlook or the web client.</i>
-<br />
-
-<img src="https://i.imgur.com/rnl2Ndd.png" alt="Default Retention Policy"/>
-
-<h2>6. Conditional Access</h2>
-<p>Conditional Access policy configuration is covered in full in the dedicated Conditional Access subsection following Phase 3. That section documents policy design, conditions, access controls, and enforcement outcomes using the Microsoft Entra ID Conditional Access framework. Configuration details are covered in the dedicated subsection following Phase 3.</p>
-
-<img src="https://i.imgur.com/hsH8d7b.png" alt="Conditional Access Dashboard"/>
-<!-- [Conditional Access]() -->
-
-<h2>7. Intune - Device Compliance & MDM</h2>
-<p>Microsoft Intune configuration is covered in full in the dedicated Intune subsection following Phase 3. That section documents device enrollment, compliance policies, and integration with Conditional Access for device based access enforcement. Configuration details are covered in the dedicated subsection following Phase 3.</p>
-
-<img src="https://i.imgur.com/zrVzG7V.png" alt="Intune Dashboard"/>
-<!-- [Intune Device Compliance & MDM]() -->
-
-<h2>8. Purview Data Loss Prevention (DLP)</h2>
-<p>A Data Loss Prevention policy was configured in Microsoft Purview to detect sensitive financial data, specifically credit and debit card numbers across the tenant. The policy was built around the US Financial Data and PCI DSS compliance template and applied across Exchange email, SharePoint, OneDrive, and Teams, meaning any attempt to share card data in any of those locations gets flagged automatically. When a user tries to send a credit card number via email, a Policy Tip appears in real time warning and stopping the leak before it happens. Configuration details are covered in the dedicated subsection following Phase 3.</p>
-
-<img src="https://i.imgur.com/A3uwt7g.png" alt="Purview Dashboard"/>
-<!-- [Purview Data Loss Prevention (DLP)]() -->
 
 
 <h1>Key Takeaways</h1>
 <ul>
-<li><strong>Validated the Okta SAML SSO integration, documenting the Tenant ID handshake, user assignment, and dual account federation trust</li>
-<li><strong>Configured layered Teams governance across internal messaging policies and guest access settings, restricting message manipulation and screen sharing</li>
-<li><strong>Standardized the Teams app bar experience via a custom setup policy including a third party app integration (Calendly)</li>
-<li><strong>Provisioned a private SharePoint Team Site for the IT support group with controlled membership and validated external sharing behavior</li>
-<li><strong>Applied the Default MRM Policy to a user mailbox, establishing automated data lifecycle management and cloud archiving</li>
-<li><strong>Established Conditional Access, Intune, Purview frameworks as dedicated subsections</li>
+<li><strong>Navigated the Microsoft Purview portal and identified Data Loss Prevention among its broader suite of governance and compliance solutions</li>
+<li><strong>Built a DLP policy using the built-in PCI DSS template, covering Exchange, SharePoint, OneDrive, Teams, and on-premises repositories in a single policy</li>
+<li><strong>Validated the policy with a real-world test, confirming Outlook surfaced a Policy Tip flagging both an external recipient and a detected credit card number</li>
+<li><strong>Understood the operational impact of policy propagation timing - up to 2 hours tenant-wide, up to 24 hours when scoped to specific users or groups</li>
 </ul>
