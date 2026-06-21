@@ -104,7 +104,7 @@ Attackers frequently target these protocols specifically because they bypass MFA
 <h3>All Users - Legacy Auth Clients - Block Access</h3>
 <ul>
   <li><strong>Users</strong>: All users, CA-Break-Glass excluded</li>
-  <li><strong>Target resources</strong>: Client apps - Exchange ActiveSync and Other clients checked; Browser and Mobile apps unlocked</li>
+  <li><strong>Target resources</strong>: Client apps - Exchange ActiveSync and Other clients checked. Browser and Mobile apps unlocked</li>
   <li><strong>Grant</strong>: Block access</li>
 </ul>
 
@@ -125,16 +125,16 @@ registration ensures that only authenticated users can enroll devices, preventin
 <i>What is the User Actions toggle?</i>
 <br />
 <i>Instead of targeting a specific application, this policy targets the act of registering a device. This is a different configuration 
-path than a standard app based policy and is easy to miss. Switching "Cloud apps" to "User actions" in the Target resources dropdown reveals this option.</i>
+path than a standard app based policy and is easy to miss. Switching "Cloud apps" to "User actions" in the Target resourdropdown reveals this option.</i>
 
 <img src="https://i.imgur.com/hn4SvD3.png" alt=""/>
 
 
 <h2>2.5 Block Device Code Flow</h2>
-<p>Device code flow is an authentication method designed for devices without a browser like smart TVs or printers. Attackers have repurposed it as a 
+<p>Device code flow is an authentication method designed for deviwithout a browser like smart TVs or printers. Attackers have repurposed it as a 
 phishing technique, tricking users into approving authentication requests that hand over access tokens. Most 
-businesses do not need this flow and blocking it removes the attack surface entirely.</p>
-<h3>All Users - Device Code Flow - Block Acces</h3>
+businesses do not need this flow, and blocking it removes the attack surface entirely.</p>
+<h3>All Users - Device Code Flow - Block Access</h3>
 <ul>
   <li><strong>Users</strong>: All users</li>
   <li><strong>Target resources</strong>: Authentication flows - Device code flow</li>
@@ -149,7 +149,7 @@ Persona based policies allow more granular control on top of the baseline, witho
 
 <h2>3.1 Protect Administrative Accounts</h2>
 <p>Admin accounts are the highest value targets in any Microsoft 365 tenant. A compromised admin account gives an attacker full control. This policy requires 
-admins to use phishing resistant MFA meaning authentication methods that cannot be intercepted or faked, such as FIDO2 security keys or Windows Hello. 
+admins to use phishing resistant MFA, meaning authentication methods that cannot be intercepted or faked, such as FIDO2 security keys or Windows Hello. 
 Additionally, admins are required to be on a company-owned device.</p>
 <h3>CA-Admins - All Apps - Phishing Resistant MFA</h3>
 <ul>
@@ -161,8 +161,8 @@ Additionally, admins are required to be on a company-owned device.</p>
 <img src="https://i.imgur.com/uV4Glty.png" alt=""/>
 
 <h2>3.2 Protect Staff with Personal Smartphones</h2>
-<p>Staff are allowed to use personal smartphones to access company resources, provided those devices meet compliance requirements. This policy was created 
-separately from the admin policy intentionally to allow staff device requirements to be adjusted independently without touching admin security settings. 
+<p>Staff are allowed to use personal smartphones to access company resources, provided those devimeet compliance requirements. This policy was created 
+separately from the admin policy, intentionally to allow staff device requirements to be adjusted independently without touching admin security settings. 
 For example, staff can use a personal phone that passes compliance checks, while admins remain locked to company owned hardware.</p>
 <h3>CA-Staff - All Apps - Require Compliant Device</h3>
 <ul>
@@ -176,7 +176,7 @@ For example, staff can use a personal phone that passes compliance checks, while
 
 
 <h2>3.3 Restrict Guest Access to Browser Only</h2>
-<p>Guest users who are external contractors and partners are forced to access company resources through a web browser only. Mobile apps and desktop clients 
+<p>Guest users who are external contractors and partners are forced to access company resourthrough a web browser only. Mobile apps and desktop clients 
 are blocked. This prevents guests from syncing company files to their personal unmanaged devices, which is a common data leakage path.</p>
 <h3>CA-Guests - All Apps - Block Mobile and Desktop Apps</h3>
 <ul>
@@ -205,7 +205,7 @@ workaround or weakening the policy, a one time use TAP was issued with a one hou
 
 <i>Why use a TAP instead of a permanent exclusion?</i>
 <br />
-<i>Creating a permanent policy exception for one user, even a CEO, introduces a persistent security gap. A TAP expires after one use, meaning the security 
+<i>Creating a permanent policy exception for one user, even a CEO, introdua persistent security gap. A TAP expires after one use, meaning the security 
 perimeter is restored the moment the user signs in. It is the right tool for temporary access issues and avoids the risk of forgotten exclusions accumulating over time.</i>
 
 <img src="https://i.imgur.com/7QTD1Tr.png" alt=""/>
@@ -232,7 +232,7 @@ removal on denial ensure that the Break-Glass group stays small and intentional,
 <ul>
 <li><strong>Defined a custom Modern MFA authentication strength to move beyond SMS and voice based verification</li>
 <li><strong>Built five baseline policies covering strong MFA enforcement, legacy auth blocking, device registration security, and device code flow prevention</li>
-<li><strong>Implemented persona based policies that layer stricter controls on admins, allow compliant personal devices for staff, and restrict guests to browser only access</li>
+<li><strong>Implemented persona based policies that layer stricter controls on admins, allow compliant personal devifor staff, and restrict guests to browser only access</li>
 <li><strong>Used a Temporary Access Pass to handle an exception without creating a permanent security gap</li>
 <li><strong>Configured monthly Access Reviews for exclusion groups to prevent policy bypass accumulation over time</li>
 <li><strong>Applied Report only mode across all policies before enforcement to safely validate impact without risking user lockouts</li>
