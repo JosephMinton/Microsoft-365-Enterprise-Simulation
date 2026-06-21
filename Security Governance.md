@@ -170,7 +170,7 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 <!-- [Intune Device Compliance & MDM]() -->
 
 <h2>8. Purview Data Loss Prevention (DLP)</h2>
-<p>A Data Loss Prevention policy was configured in Microsoft Purview to detect sensitive financial data, specifically credit and debit card numbers across the tenant. The policy was built around the US Financial Data and PCI DSS compliance template and applied across Exchange email, SharePoint, OneDrive, and Teams, meaning any attempt to share card data in any of those locations gets flagged automatically. When a user tries to send a credit card number via email, a Policy Tip appears in real time warning and stopping the leak before it happens. Configuration details are covered in the dedicated subsection following Phase 3.</p>
+<p>Data Loss Prevention configuration is covered in full in the dedicated Purview subsection following Phase 3. That section documents the PCI DSS policy build, multi-location coverage across Exchange, SharePoint, OneDrive, and Teams, and real-world validation using a live Outlook Policy Tip test.</p>
 
 <img src="https://i.imgur.com/A3uwt7g.png" alt="Purview Dashboard"/>
 <!-- [Purview Data Loss Prevention (DLP)]() -->
