@@ -1,6 +1,6 @@
 # [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
 # [Security Governance 🔒](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
-<h1>Intune - Device Compliance & MDM</h1>
+<h1>Intune: Device Compliance & MDM</h1>
 
 
 <h2>Description</h2>
@@ -57,7 +57,7 @@ enrollment status, compliance state, configuration conflicts, and app installati
   <li><strong>No configuration policy conflicts</strong></li>
 </ul>
 
-<img src="" />
+<img src="Intune Admin Center dashboard: device enrollment OK, 2 devices not evaluated, client apps OK" />
 
 
 
@@ -79,46 +79,59 @@ Setting a realistic limit — such as 20 — makes it easier to detect anomalies
 <br />
 
 
-<img src="" />
+<img src="Entra ID Device Settings: maximum number of devices per user set to 20" />
 
-<img src="" />
+<img src="Entra join and registration settings: Users may join devices set to All, MFA required" />
 
 
 
 <h2>3. Manual Device Enrollment — Entra ID Join</h2>
-<p>A custom Teams setup policy was configured to standardize the application bar experience for users assigned to the policy. Pinned apps are automatically installed and surfaced in the Teams sidebar for all policy members, ensuring consistent access to essential tools without requiring individual setup.</p>
-<h3>Applications pinned in the following order:</h3>
+<p>The first enrollment method demonstrated was a manual Entra ID join performed directly from a Windows VM. This method is used when a device needs to be brought under management without going through Autopilot — for example, an existing device being onboarded mid-lifecycle.</p>
+<h3>Steps performed on the Windows VM:</h3>
 <ul>
-  <li>Activity</li>
+  <li>1. Navigated to Settings > Accounts > Access work or school</li>
   <li>Chat</li>
-  <li>Teams</li>
+  <li>2. Selected Connect, then clicked "Join this device to Microsoft Entra ID" rather than entering an email address at the top</li>
   <li>Calendar</li>
-  <li>Calling</li>
-  <li>OneDrive</li>
-  <li>Calendly</li>
+  <li>3. Signed in with a licensed user's credentials</li>
+  <li>4. Device joined and confirmed connected to the tenant</li>
 </ul>
 
-<i>Why standardize pinned apps via policy?</i>
+<i>Why use "Join this device to Microsoft Entra ID" instead of just entering an email?</i>
 <br />
-<i>When every user configures their own Teams sidebar, you end up with inconsistency across the org. Some people missing key tools, while others cluttered with apps they don't need. Pinning apps through an admin policy gives everyone the same starting point, reduces onboarding friction, and cuts down on "where do I find X" support tickets. Adding a third party app like Calendly also shows that Teams can be extended beyond Microsoft's own toolset to fit how a team desires to work.</i>
+<i>Entering an email address at the top of the Connect screen only registers the device — a lighter form of enrollment that gives the organization limited management capability. Clicking "Join this device to Microsoft Entra ID" performs a full domain join, giving Intune complete management authority over the device including policy enforcement, compliance checks, and remote wipe.</i>
 <br />
 
-<img src="https://i.imgur.com/0j4pSDM.png"/>
+<img src="Windows "Set up a work or school account": "Join this device to Microsoft Entra ID" highlighted"/>
+
+<p>Following enrollment, the connection was confirmed in Windows Settings under Access work or school, showing the device linked to the JosephMintonTech Entra ID tenant under the enrolled user.</p>
+
+<img src="Windows Settings: Annie Leonhart connected to JosephMintonTech Entra ID"/>
 
 
-<h2>4. Collaboration Security & SharePoint Governance</h2>
-<p>A SharePoint Team Site was created for the IT Support team using a Help Desk template. The site was provisioned as a private group, meaning membership is controlled and the site is not discoverable by the broader part of the organization. This configuration is appropriate for teams handling sensitive operational data such as incident tickets, internal runbooks, or escalation procedures.</p>
+<h2>4. Device Inventory — Entra ID & Intune</h2>
+<p>Following enrollment, the full device inventory was reviewed across both the Entra Admin Center and the Intune Admin Center. The two views serve different purposes — Entra shows identity and join type, while Intune shows management and compliance status.</p>
 
-<img src="https://i.imgur.com/qKL3FTT.png"/>
-
-<h3>Site details:</h3>
+<h3>The Entra device list showed 7 devices with the following characteristics:</h3>
 <ul>
-  <li>Site name: Help Desk</li>
-  <li>Template: Team Site</li>
-  <li>Type: Private group</li>
-  <li>Description: IT Support Tech Team</li>
-  <li>URL: <a href="https://josephmintontech.sharepoint.com/sites/HelpDesk/SitePages/ITHelpdeskHome.aspx?e=4%3AKBySh0&web=1&at=9">IT Support Tech Team</a></li>
+  <li>Most devices joined via Microsoft Entra join (full join)</li>
+  <li>Some devices registered via Microsoft Entra registered (BYOD/partial enrollment)</li>
+  <li>MDM column reflected Microsoft Intune for fully managed devices</li>
+  <li>Compliance column showed a mix of compliant and non-compliant states depending on whether the device met policy requirements</li>
 </ul>
+
+<i>Entra joined vs. Entra registered</i>
+<br />
+<i>A device that is Entra joined is fully under organizational control — it signs in with a work account and Intune can push any policy to it. A device that is Entra registered is typically a personal device where the user has added a work account but the organization has limited management authority. This distinction directly affects what compliance policies and Conditional Access rules apply to that device.</i>
+<br />
+
+<img src="Entra ID All Devices: 7 devices showing join type, MDM status, compliance, and owner"/>
+
+<p>The Intune device list showed 5 managed devices. Some devices were intentionally left without full Intune licensing to demonstrate the difference — devices without the required license appear in the list but show no MDM management and cannot have policies applied.</p>
+
+<img src="Intune All Devices: 5 devices showing Managed by, Ownership, and Compliance columns"/>
+
+
 <h3>Team Site vs. Communication Site</h3>
 <ul>
   <li><strong>Team Site</strong> Designed for a small, defined group of collaborators. All members can be owners with full control. Best for internal team workspaces with restricted access.</li>
@@ -131,47 +144,131 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 
 
 
-<h2>5. Mailbox Retention & Data Lifecycle Management</h2>
-<p>A retention policy was applied to a user mailbox via the Exchange Admin Center. The Default MRM Policy was selected. It is Microsoft's built in collection of retention tags applied to a mailbox at the folder level, governing how long items are retained before being moved to archive or permanently deleted.</p>
-<h3>Policy applied:</h3>
+<h2>5. Dynamic Device Groups</h2>
+<p>A dynamic security group was created in Entra ID to automatically include Windows devices running a specific OS version. Unlike static groups where members are added manually, dynamic groups evaluate membership rules in real time — any device that meets the rule is added automatically, and any device that no longer meets it is removed.</p>
+<h3>Membership rule configured:</h3>
 <ul>
-  <li><strong>Retention policy</strong>: Default MRM Policy</li>
-  <li><strong>Sharing policy</strong>: Default Sharing Policy</li>
-  <li><strong>Role assignment policy</strong>: Default Role Assignment Policy</li>
+  <li><strong>Rule 1</strong>: deviceOSType equals Windows</li>
+  <li><strong>Rule 2</strong>: deviceOSVersion starts with 10.0.2</li>
 </ul>
 
-<i>Why does retention matter?</i>
+Rule syntax: (device.deviceOSType -eq "Windows") and (device.deviceOSVersion -startsWith "10.0.2") FIX THIS
+
+<i>Why use dynamic groups for device management?</i>
 <br />
-<i>Without a retention policy, user mailboxes grow indefinitely on the local client which could eventually cause performance degradation or machine crashes. Retention policies automatically move older emails to a cloud archive, keeping the local mailbox lean while preserving data for legal, compliance, or business continuity purposes. The archive is accessible to the user at any time through Outlook or the web client.</i>
+<i>In a growing organization, manually maintaining group membership is error-prone and time-consuming. Dynamic groups ensure that new devices are automatically included in the right policy scope the moment they enroll and meet the criteria — no manual intervention required. This is especially valuable for compliance policies and Autopilot deployment profiles.</i>
 <br />
 
-<img src="https://i.imgur.com/rnl2Ndd.png" alt="Default Retention Policy"/>
+<img src="Dynamic membership rules: deviceOSType equals Windows, deviceOSVersion starts with 10.0.2"/>
 
-<h2>6. Conditional Access</h2>
-<p>Conditional Access policy configuration is covered in full in the dedicated Conditional Access subsection following Phase 3. That section documents policy design, conditions, access controls, and enforcement outcomes using the Microsoft Entra ID Conditional Access framework. Configuration details are covered in the dedicated subsection following Phase 3.</p>
+<p>The rule was validated using the built-in validation tool, which confirmed that enrolled devices matching the criteria were correctly included in the group.</p>
 
-<img src="https://i.imgur.com/hsH8d7b.png" alt="Conditional Access Dashboard"/>
-<!-- [Conditional Access]() -->
+<img src="Dynamic group validation: enrolled devices showing "In group" status"/>
 
-<h2>7. Intune - Device Compliance & MDM</h2>
-<p>Microsoft Intune configuration is covered in full in the dedicated Intune subsection following Phase 3. That section documents device enrollment, compliance policies, and integration with Conditional Access for device based access enforcement. Configuration details are covered in the dedicated subsection following Phase 3.</p>
+<h2>6. Windows Autopilot — Zero Touch Provisioning</h2>
+<p>Windows Autopilot is a cloud-based provisioning method that replaces traditional device imaging. Instead of manually configuring each machine, Autopilot uses a hardware identifier to recognize a device the moment it connects to the internet, then automatically applies corporate settings, apps, and policies — all without an administrator touching the device.</p>
 
-<img src="https://i.imgur.com/zrVzG7V.png" alt="Intune Dashboard"/>
-<!-- [Intune Device Compliance & MDM]() -->
+<h3><strong>Hardware Hash Extraction</strong></h3>
+<p>To register the Windows VM with Autopilot, its unique hardware hash was extracted using a PowerShell script run directly on the machine. The script generated an AutopilotHWID.csv file containing the device's serial number and hardware fingerprint, which was then imported into the Intune portal.</p>
 
-<h2>8. Purview Data Loss Prevention (DLP)</h2>
-<p>A Data Loss Prevention policy was configured in Microsoft Purview to detect sensitive financial data, specifically credit and debit card numbers across the tenant. The policy was built around the US Financial Data and PCI DSS compliance template and applied across Exchange email, SharePoint, OneDrive, and Teams, meaning any attempt to share card data in any of those locations gets flagged automatically. When a user tries to send a credit card number via email, a Policy Tip appears in real time warning and stopping the leak before it happens. Configuration details are covered in the dedicated subsection following Phase 3.</p>
+<img src="PowerShell: hardware hash extraction script running, AutopilotHWID.csv generated in C:\HWID"/>
 
-<img src="https://i.imgur.com/A3uwt7g.png" alt="Purview Dashboard"/>
-<!-- [Purview Data Loss Prevention (DLP)]() -->
+<h3><strong>Device Import & Profile Assignment</strong></h3>
+<p>The CSV was imported into the Windows Autopilot Devices list in Intune. Upon import, the device appeared with a profile status of "Not assigned" while the deployment profile was being configured.</p>
+
+<img src="Windows Autopilot Devices: VMware VM showing serial number, profile status "Not assigned""/>
+
+<h3><strong>Deployment Profile — Out of Box Experience (OOBE)</strong></h3>
+<h3>A User-Driven deployment profile was created to define the out-of-box experience for any device registered under this Autopilot configuration. Key settings configured:</h3>
+
+<ul>
+  <li><strong>Deployment mode</strong>: User-Driven</li>
+  <li><strong>Join to Microsoft Entra ID as</strong>: Microsoft Entra joined</li>
+  <li><strong>User account type</strong>: Standard (users do not receive local admin rights)</li>
+  <li><strong>Apply device name template</strong>: Yes — AUTOPILOT-%RAND:3%</li>
+  <li><strong>Privacy settings and license terms</strong>: Hidden to streamline the setup experience</li>
+</ul>
+
+<i>Why set the user account type to Standard?</i>
+<br />
+<i>Giving end users local administrator rights on their machines is a common security gap — it allows them to install unauthorized software, disable security tools, or make system changes that break compliance. Setting the account type to Standard through Autopilot ensures that no user arrives on a new device with more access than they need.</i>
+<br />
+
+<img src="Autopilot OOBE profile: User-Driven, Standard user account, device name template AUTOPILOT-%RAND:3%"/>
+
+<p>After the profile was created and assigned to the dynamic device group, the Autopilot device list was refreshed and the VMware VM's profile status updated from "Not assigned" to "Assigned" — confirming the device is now registered and ready for zero-touch provisioning.</p>
+
+<img src="Windows Autopilot Devices: VMware VM profile status updated to Assigned"/>
+
+
+
+
+<h2>7. Compliance Policy — IT Devices</h2>
+<p>A Windows 10/11 compliance policy named "IT Devices Compliance" was created to define the minimum security requirements a device must meet before being considered trusted. Devices that fail any of these checks are immediately marked non-compliant, which integrates directly with Conditional Access to block access to company resources.</p>
+
+<h3>IT Devices Compliance — Policy Summary</h3>
+
+<ul>
+  <li><strong>Platform</strong>: Windows 10 and later</li>
+  <li><strong>BitLocker</strong>: Required</li>
+  <li><strong>Secure Boot</strong>: Required</li>
+  <li><strong>Minimum OS version</strong>: Windows 11</li>
+  <li><strong>Action on noncompliance</strong>: Mark device noncompliant — Immediately</li>
+</ul>
+
+<i>Why require BitLocker and Secure Boot?</i>
+<br />
+<i>BitLocker encrypts the device's hard drive — if the device is lost or stolen, the data on it is unreadable without the recovery key. Secure Boot prevents the device from loading unauthorized software during startup, blocking a class of attacks that target the boot process before the operating system loads. Together, these two controls form the hardware security baseline for any managed Windows device.</i>
+<br />
+
+
+<img src="Windows 10/11 compliance policy: BitLocker required, Secure Boot required, minimum OS version 11, mark noncompliant immediately"/>
+
+
+<h2>8. Device Configuration Profile — Control Panel Restrictions</h2>
+<p>A device restriction profile named "Control Panel Configurations" was created and assigned to the IT Devices group. This profile uses Intune's built-in settings catalog to block specific areas of the Windows Control Panel and Settings app, preventing users from making changes that could compromise security or create support issues.</p>
+
+<h3>Settings blocked in this profile:</h3>
+
+<table>
+  <tr>
+    <td><b>System</b></td>
+    <td><b>Network and Internet</b></td>
+  </tr>
+  <tr>
+    <td><b>Apps</b></td>
+    <td><b>Accounts</b></td>
+  </tr>
+  <tr>
+    <td><b>Gaming</b></td>
+    <td><b>Privacy</b></td>
+  </tr>
+  <tr>
+    <td><b>Update and Security</b></td>
+    <td><b></b></td>
+  </tr>
+</table>
+
+<i>Why lock down Control Panel settings?</i>
+<br />
+<i>Allowing users unrestricted access to Control Panel settings is a common source of both security incidents and support tickets. Users modifying network settings, installing apps outside approved channels, or disabling security features can undermine the entire compliance posture. Locking these settings through policy ensures the device stays in a known, controlled state regardless of who is using it.</i>
+<br />
+
+<img src="Device restrictions: Control Panel and Settings toggles showing blocked items"/>
+
+<p>The profile was reviewed and confirmed before creation, showing the full list of blocked settings and the assigned group — IT Devices, which contains 3 devices and 0 users.</p>
+
+<img src="Device restrictions review: Control Panel Configurations profile, IT Devices group assigned (3 devices)"/>
+
 
 
 <h1>Key Takeaways</h1>
 <ul>
-<li><strong>Validated the Okta SAML SSO integration, documenting the Tenant ID handshake, user assignment, and dual account federation trust</li>
-<li><strong>Configured layered Teams governance across internal messaging policies and guest access settings, restricting message manipulation and screen sharing</li>
-<li><strong>Standardized the Teams app bar experience via a custom setup policy including a third party app integration (Calendly)</li>
-<li><strong>Provisioned a private SharePoint Team Site for the IT support group with controlled membership and validated external sharing behavior</li>
-<li><strong>Applied the Default MRM Policy to a user mailbox, establishing automated data lifecycle management and cloud archiving</li>
-<li><strong>Established Conditional Access, Intune, Purview frameworks as dedicated subsections</li>
+<li><strong>Configured Entra ID device settings to enable MDM enrollment for all users with a reduced device cap of 20 per user</li>
+<li><strong>Enrolled devices using both manual Entra ID join and Windows Autopilot, demonstrating the difference between registered and fully joined devices</li>
+<li><strong>Built a dynamic device group using OS type and version rules to automate policy targeting without manual membership management</li>
+<li><strong>Extracted hardware hashes via PowerShell and registered a VM with Windows Autopilot, progressing from "Not assigned" to "Assigned" profile status</li>
+<li><strong>Configured a User-Driven Autopilot deployment profile with Standard user accounts and a device name template for consistent naming at enrollment</li>
+<li><strong>Enforced BitLocker, Secure Boot, and minimum OS version requirements through a compliance policy tied to Conditional Access</li>
+<li><strong>Applied a device restriction profile blocking key Control Panel sections to maintain a controlled, auditable device state</li>
 </ul>
