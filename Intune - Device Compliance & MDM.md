@@ -64,12 +64,12 @@ configuration policies were applied to enforce security baselines across enrolle
 
 <h3>Before any device can be enrolled, Entra ID must be configured to allow it. Device settings were accessed through the Entra Admin Center under Devices and configured as follows:</h3>
 
-<ul>
-  <li><strong>Users may join devices to Microsoft Entra</strong>: All</li>
-  <li><strong>Users may register their devices with Microsoft Entra: All</strong></li>
-  <li><strong>Require MFA to register or join devices</strong>: Yes</li>
-  <li><strong>Maximum number of devices per user</strong>: 20 (reduced from the default of 50)</li>
-</ul>
+| Setting | Value |
+|---|---|
+| Users may join devices to Microsoft Entra | All |
+| Users may register their devices with Microsoft Entra | All |
+| Require MFA to register or join devices | Yes |
+| Maximum number of devices per user | 20 (reduced from default of 50) |
 
 <i>Why reduce the device limit?</i>
 <br />
@@ -89,9 +89,7 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
 <h3>Steps performed on the Windows VM:</h3>
 <ul>
   <li>1. Navigated to Settings > Accounts > Access work or school</li>
-  <li>Chat</li>
   <li>2. Selected Connect, then clicked "Join this device to Microsoft Entra ID" rather than entering an email address at the top</li>
-  <li>Calendar</li>
   <li>3. Signed in with a licensed user's credentials</li>
   <li>4. Device joined and confirmed connected to the tenant</li>
 </ul>
@@ -172,13 +170,13 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
 <h3><strong>Deployment Profile: Out of Box Experience</strong></h3>
 <h3>A user driven deployment profile was created to define the out of box experience for any device registered under this Autopilot configuration. Key settings configured:</h3>
 
-<ul>
-  <li><strong>Deployment mode</strong>: User Driven</li>
-  <li><strong>Join to Microsoft Entra ID as</strong>: Microsoft Entra joined</li>
-  <li><strong>User account type</strong>: Standard (users do not receive local admin rights)</li>
-  <li><strong>Apply device name template</strong>: Yes - AUTOPILOT-%RAND:3%</li>
-  <li><strong>Privacy settings and license terms</strong>: Hidden to streamline the setup experience</li>
-</ul>
+| Setting | Value |
+|---|---|
+| Deployment mode | User Driven |
+| Join to Microsoft Entra ID as | Microsoft Entra joined |
+| User account type | Standard (no local admin rights) |
+| Apply device name template | Yes - AUTOPILOT-%RAND:3% |
+| Privacy settings and license terms | Hidden |
 
 <i>Why set the user account type to Standard?</i>
 <br />
@@ -199,13 +197,13 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
 
 <h3>IT Devices Compliance: Policy Summary</h3>
 
-<ul>
-  <li><strong>Platform</strong>: Windows 10 and later</li>
-  <li><strong>BitLocker</strong>: Required</li>
-  <li><strong>Secure Boot</strong>: Required</li>
-  <li><strong>Minimum OS version</strong>: Windows 11</li>
-  <li><strong>Action on noncompliance</strong>: Mark device noncompliant - Immediately</li>
-</ul>
+| Setting | Value |
+|---|---|
+| Platform | Windows 10 and later |
+| BitLocker | Required |
+| Secure Boot | Required |
+| Minimum OS version | Windows 11 |
+| Action on noncompliance | Mark device noncompliant - Immediately |
 
 <i>Why require BitLocker and Secure Boot?</i>
 <br />
