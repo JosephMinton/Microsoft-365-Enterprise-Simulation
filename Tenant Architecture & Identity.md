@@ -1,5 +1,5 @@
 # [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
-<h1>Tenant Architecture & Identity</h1>
+<h1>Tenant Architecture & Identity 🏗️</h1>
 
 
 
