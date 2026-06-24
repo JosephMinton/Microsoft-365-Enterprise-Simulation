@@ -80,7 +80,7 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
 
 <img src="https://i.imgur.com/JSqbqQY.png" />
 
-<img src="https://i.imgur.com/agTFT7R.png" />
+
 
 
 
@@ -99,7 +99,7 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
 <i>Entering an email address at the top of the Connect screen only registers the device that only gives the organization limited management capability. Clicking "Join this device to Microsoft Entra ID" performs a full domain join, giving Intune complete management authority over the device including policy enforcement, compliance checks, and remote wipe.</i>
 <br />
 
-<img src="Windows "Set up a work or school account": "Join this device to Microsoft Entra ID" highlighted"/>
+<img src="https://i.imgur.com/agTFT7R.png" />
 
 <p>Following enrollment, the connection was confirmed in Windows Settings under Access work or school, showing the device linked to the JosephMintonTech Entra ID tenant under the enrolled user.</p>
 
@@ -243,11 +243,10 @@ Setting a realistic limit like 20 makes it easier to detect anomalies and preven
 <i>Allowing users unrestricted access to Control Panel settings is a common source of both security incidents and support tickets. Users modifying network settings, installing apps outside approved channels, or disabling security features can undermine the entire compliance posture. Locking these settings through policy ensures the device stays in a known, controlled state regardless of who is using it.</i>
 <br />
 
-<img src="Device restrictions: Control Panel and Settings toggles showing blocked items"/>
+<img src="https://i.imgur.com/3mVZuWB.png"/>
 
 <p>The profile was reviewed and confirmed before creation, showing the full list of blocked settings and the assigned group "IT Devices", which contains 3 devices and 0 users.</p>
 
-<img src="https://i.imgur.com/3mVZuWB.png"/>
 <img src="https://i.imgur.com/xDlsJ61.png"/>
 
 
