@@ -45,7 +45,7 @@ Centralized identity control is established through dynamic group membership, ro
 
     - [Conditional Access](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/Conditional%20Access.md) 🚧 Configured sign in policies that evaluate who is authenticating, from what device, and how. Only after that process, user has granted or blocked access accordingly. Implemented a two tier model covering baseline controls for all users and stricter policies for admins, staff, and guests.
 
-    - [Intune: Device Compliance & MDM](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/Intune%20-%20Device%20Compliance%20%26%20MDM.md) 📱 Enrolled devices into Microsoft Intune through manual Entra ID join and Windows Autopilot, then enforced hardware security requirements, and locked down Control Panel settings to keep every managed device in a known, controlled state.
+    - [Intune: Device Compliance & MDM](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Intune%3A%20Device%20Compliance%20%26%20MDM.md) 📱 Enrolled devices into Microsoft Intune through manual Entra ID join and Windows Autopilot, then enforced hardware security requirements, and locked down Control Panel settings to keep every managed device in a known, controlled state.
 <!--    - [Purview DLP 🔍](your-link-here) Your description here.
 
   - [Helpdesk Scenarios 🛠️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/Helpdesk%20Scenarios) Resolved simulated help desk tickets covering common M365 client issues including Outlook profile repair, Teams configuration, and OneDrive sync failures. Each scenario is documented with the reported symptom, root cause, and step by step resolution.
