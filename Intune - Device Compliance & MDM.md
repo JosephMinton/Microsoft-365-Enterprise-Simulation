@@ -57,7 +57,7 @@ enrollment status, compliance state, configuration conflicts, and app installati
   <li><strong>No configuration policy conflicts</strong></li>
 </ul>
 
-<img src="Intune Admin Center dashboard: device enrollment OK, 2 devices not evaluated, client apps OK" />
+<img src="https://i.imgur.com/WddSekO.png" />
 
 
 
@@ -79,9 +79,9 @@ Setting a realistic limit — such as 20 — makes it easier to detect anomalies
 <br />
 
 
-<img src="Entra ID Device Settings: maximum number of devices per user set to 20" />
+<img src="https://i.imgur.com/JSqbqQY.png" />
 
-<img src="Entra join and registration settings: Users may join devices set to All, MFA required" />
+<img src="https://i.imgur.com/agTFT7R.png" />
 
 
 
@@ -106,7 +106,7 @@ Setting a realistic limit — such as 20 — makes it easier to detect anomalies
 
 <p>Following enrollment, the connection was confirmed in Windows Settings under Access work or school, showing the device linked to the JosephMintonTech Entra ID tenant under the enrolled user.</p>
 
-<img src="Windows Settings: Annie Leonhart connected to JosephMintonTech Entra ID"/>
+<img src="https://i.imgur.com/hScAjo4.png"/>
 
 
 <h2>4. Device Inventory — Entra ID & Intune</h2>
@@ -125,22 +125,11 @@ Setting a realistic limit — such as 20 — makes it easier to detect anomalies
 <i>A device that is Entra joined is fully under organizational control — it signs in with a work account and Intune can push any policy to it. A device that is Entra registered is typically a personal device where the user has added a work account but the organization has limited management authority. This distinction directly affects what compliance policies and Conditional Access rules apply to that device.</i>
 <br />
 
-<img src="Entra ID All Devices: 7 devices showing join type, MDM status, compliance, and owner"/>
+<img src="https://i.imgur.com/lnmhzhu.png"/>
 
 <p>The Intune device list showed 5 managed devices. Some devices were intentionally left without full Intune licensing to demonstrate the difference — devices without the required license appear in the list but show no MDM management and cannot have policies applied.</p>
 
-<img src="Intune All Devices: 5 devices showing Managed by, Ownership, and Compliance columns"/>
-
-
-<h3>Team Site vs. Communication Site</h3>
-<ul>
-  <li><strong>Team Site</strong> Designed for a small, defined group of collaborators. All members can be owners with full control. Best for internal team workspaces with restricted access.</li>
-  <li><strong>Communication Site</strong>: Designed for public audiences including thousands of visitors with a small number of owners maintaining full control. Best for company wide announcements or knowledge bases.</li>
-</ul>
-<p>The Help Desk site was created as a Team Site intentionally, limiting visibility and edit access to the IT support group only.
-External sharing was tested by sharing the site with a personal Gmail account, confirming that the permission model correctly grants access to explicitly invited external users while keeping the site private from the general public.
-</p>
-<img src="https://i.imgur.com/ZjrTzIW.png"/>
+<img src="https://i.imgur.com/qbRvcfF.png"/>
 
 
 
@@ -159,11 +148,11 @@ Rule syntax: (device.deviceOSType -eq "Windows") and (device.deviceOSVersion -st
 <i>In a growing organization, manually maintaining group membership is error-prone and time-consuming. Dynamic groups ensure that new devices are automatically included in the right policy scope the moment they enroll and meet the criteria — no manual intervention required. This is especially valuable for compliance policies and Autopilot deployment profiles.</i>
 <br />
 
-<img src="Dynamic membership rules: deviceOSType equals Windows, deviceOSVersion starts with 10.0.2"/>
+<img src="https://i.imgur.com/4M0L2MJ.png"/>
 
 <p>The rule was validated using the built-in validation tool, which confirmed that enrolled devices matching the criteria were correctly included in the group.</p>
 
-<img src="Dynamic group validation: enrolled devices showing "In group" status"/>
+<img src="https://i.imgur.com/kL1QrZa.png"/>
 
 <h2>6. Windows Autopilot — Zero Touch Provisioning</h2>
 <p>Windows Autopilot is a cloud-based provisioning method that replaces traditional device imaging. Instead of manually configuring each machine, Autopilot uses a hardware identifier to recognize a device the moment it connects to the internet, then automatically applies corporate settings, apps, and policies — all without an administrator touching the device.</p>
@@ -171,12 +160,12 @@ Rule syntax: (device.deviceOSType -eq "Windows") and (device.deviceOSVersion -st
 <h3><strong>Hardware Hash Extraction</strong></h3>
 <p>To register the Windows VM with Autopilot, its unique hardware hash was extracted using a PowerShell script run directly on the machine. The script generated an AutopilotHWID.csv file containing the device's serial number and hardware fingerprint, which was then imported into the Intune portal.</p>
 
-<img src="PowerShell: hardware hash extraction script running, AutopilotHWID.csv generated in C:\HWID"/>
+<img src="https://i.imgur.com/TnlqZZk.png"/>
 
 <h3><strong>Device Import & Profile Assignment</strong></h3>
 <p>The CSV was imported into the Windows Autopilot Devices list in Intune. Upon import, the device appeared with a profile status of "Not assigned" while the deployment profile was being configured.</p>
 
-<img src="Windows Autopilot Devices: VMware VM showing serial number, profile status "Not assigned""/>
+<img src="https://i.imgur.com/gkXlWtr.png"/>
 
 <h3><strong>Deployment Profile — Out of Box Experience (OOBE)</strong></h3>
 <h3>A User-Driven deployment profile was created to define the out-of-box experience for any device registered under this Autopilot configuration. Key settings configured:</h3>
@@ -194,11 +183,11 @@ Rule syntax: (device.deviceOSType -eq "Windows") and (device.deviceOSVersion -st
 <i>Giving end users local administrator rights on their machines is a common security gap — it allows them to install unauthorized software, disable security tools, or make system changes that break compliance. Setting the account type to Standard through Autopilot ensures that no user arrives on a new device with more access than they need.</i>
 <br />
 
-<img src="Autopilot OOBE profile: User-Driven, Standard user account, device name template AUTOPILOT-%RAND:3%"/>
+<img src="https://i.imgur.com/kCGooNL.png"/>
 
 <p>After the profile was created and assigned to the dynamic device group, the Autopilot device list was refreshed and the VMware VM's profile status updated from "Not assigned" to "Assigned" — confirming the device is now registered and ready for zero-touch provisioning.</p>
 
-<img src="Windows Autopilot Devices: VMware VM profile status updated to Assigned"/>
+<img src="https://i.imgur.com/SR8b0F0.png"/>
 
 
 
@@ -222,7 +211,7 @@ Rule syntax: (device.deviceOSType -eq "Windows") and (device.deviceOSVersion -st
 <br />
 
 
-<img src="Windows 10/11 compliance policy: BitLocker required, Secure Boot required, minimum OS version 11, mark noncompliant immediately"/>
+<img src="https://i.imgur.com/68AHz46.png"/>
 
 
 <h2>8. Device Configuration Profile — Control Panel Restrictions</h2>
@@ -258,8 +247,8 @@ Rule syntax: (device.deviceOSType -eq "Windows") and (device.deviceOSVersion -st
 
 <p>The profile was reviewed and confirmed before creation, showing the full list of blocked settings and the assigned group — IT Devices, which contains 3 devices and 0 users.</p>
 
-<img src="Device restrictions review: Control Panel Configurations profile, IT Devices group assigned (3 devices)"/>
-
+<img src="https://i.imgur.com/3mVZuWB.png"/>
+<img src="https://i.imgur.com/xDlsJ61.png"/>
 
 
 <h1>Key Takeaways</h1>
