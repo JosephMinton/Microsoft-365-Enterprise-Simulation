@@ -54,7 +54,7 @@ shared across the tenant, and proving that detection actually works in practice 
 | Setting | Value |
 |---|---|
 | Information to protect | PCI Data Security Standard (PCI DSS) |
-| Locations | Exchange, SharePoint, OneDrive, Teams, On-premises repositories |
+| Locations | Exchange, SharePoint, OneDrive, Teams, On prem enviornments |
 | Mode | Turn the policy on immediately |
 | Rules | Low volume detected (PCI DSS), High volume detected (PCI DSS) |
 
