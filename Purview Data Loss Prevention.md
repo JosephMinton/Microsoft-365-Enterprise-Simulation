@@ -1,6 +1,6 @@
 # [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
 # [Security Governance 🔒](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
-<h1>Purview Data Loss Prevention (DLP) 🔍</h1>
+<h1>Purview: Data Loss Prevention (DLP) 🔍</h1>
 
 
 <h2>Description</h2>
