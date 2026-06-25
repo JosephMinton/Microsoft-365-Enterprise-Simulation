@@ -157,23 +157,26 @@ External sharing was tested by sharing the site with a personal Gmail account, c
 
 <img src="https://i.imgur.com/rnl2Ndd.png" alt="Default Retention Policy"/>
 
-<h2>6. Conditional Access</h2>
-<p>Conditional Access policy configuration is covered in full in the dedicated Conditional Access subsection following Phase 3. That section documents policy design, conditions, access controls, and enforcement outcomes using the Microsoft Entra ID Conditional Access framework. Configuration details are covered in the dedicated subsection following Phase 3.</p>
+# 6. [Conditional Access](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/Conditional%20Access.md) 🚧
+<p>Conditional Access policy configuration is covered in full in the dedicated Conditional Access subsection in the link below. That section documents policy design, conditions, access controls, and enforcement outcomes using the Microsoft Entra ID Conditional Access framework.</p>
 
 <img src="https://i.imgur.com/hsH8d7b.png" alt="Conditional Access Dashboard"/>
-<!-- [Conditional Access]() -->
 
-<h2>7. Intune - Device Compliance & MDM</h2>
-<p>Microsoft Intune configuration is covered in full in the dedicated Intune subsection following Phase 3. That section documents device enrollment, compliance policies, and integration with Conditional Access for device based access enforcement. Configuration details are covered in the dedicated subsection following Phase 3.</p>
+# [Conditional Access](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/Conditional%20Access.md) 🚧
+
+# 7. [Intune: Device Compliance & MDM](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Intune%3A%20Device%20Compliance%20%26%20MDM.md) 📱
+<p>Microsoft Intune configuration is covered in full in the dedicated Intune subsection link down below. That section documents device enrollment, compliance policies, and integration with Conditional Access for device based access enforcement.</p>
 
 <img src="https://i.imgur.com/zrVzG7V.png" alt="Intune Dashboard"/>
-<!-- [Intune Device Compliance & MDM]() -->
 
-<h2>8. Purview Data Loss Prevention (DLP)</h2>
-<p>Data Loss Prevention configuration is covered in full in the dedicated Purview subsection following Phase 3. That section documents the PCI DSS policy build, multi-location coverage across Exchange, SharePoint, OneDrive, and Teams, and real-world validation using a live Outlook Policy Tip test.</p>
+# [Intune: Device Compliance & MDM](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Intune%3A%20Device%20Compliance%20%26%20MDM.md) 📱
+
+# 8. [Purview: Data Loss Prevention](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Purview%20Data%20Loss%20Prevention%20(DLP).md) 🔍
+<p>Data Loss Prevention configuration is covered in the dedicated subsection in the link below. That section documents the PCI DSS policy build, multi-location coverage across Exchange, SharePoint, OneDrive, and Teams, and real-world validation using a live Outlook Policy Tip test.</p>
 
 <img src="https://i.imgur.com/A3uwt7g.png" alt="Purview Dashboard"/>
-<!-- [Purview Data Loss Prevention (DLP)]() -->
+
+# [Purview: Data Loss Prevention](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Purview%20Data%20Loss%20Prevention%20(DLP).md) 🔍
 
 
 <h1>Key Takeaways</h1>
