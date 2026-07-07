@@ -104,8 +104,22 @@ of the tenant's control. Microsoft flags this with a warning in the Exchange Adm
 FIX NEXT DOWN BELOW
 
 
-<h2>3. Manual Device Enrollment: Entra ID Join</h2>
-<p>The first enrollment method demonstrated was a manual Entra ID join performed directly from a Windows VM. This method is used when a device needs to be brought under management without going through Autopilot. Like when an existing device being onboarded midlife.</p>
+<h2>3. Tenant Health & Mail Flow Monitoring</h2>
+<p>When a user reports that an email never arrived, the first tool to reach for is Message Trace in the Exchange Admin Center. It lets an administrator search for any email by sender, recipient, 
+date, or subject and see exactly what happened to it — whether it was delivered, blocked, delayed, or bounced.</p>
+</br>
+<p>A Message Trace was performed to track an email sent from an external Gmail account to the lab tenant. The trace confirmed the message was successfully delivered to the recipient's inbox, including the exact delivery timestamp.</p>
+
+<img src="" Image: Message Trace results: email from Gmail delivered to tenant inbox, full delivery details visible/>
+
+<i>When an email looks suspicious</i>
+<br />
+<i>If a traced email appears to be spam, phishing, or malware, it can be submitted directly to Microsoft for analysis through the Microsoft Defender portal. The submission form accepts the email's network message ID, identifies the affected 
+recipient, and allows the administrator to categorize the threat. Microsoft reviews the submission and uses it to improve detection across the platform.</i>
+<br />
+
+<img src="" Image: Microsoft Defender: Submit to Microsoft for analysis form, categorized as confirmed phishing threat/>
+
 <h3>Steps performed on the Windows VM:</h3>
 <ul>
   <li>1. Navigated to Settings > Accounts > Access work or school</li>
