@@ -101,8 +101,6 @@ of the tenant's control. Microsoft flags this with a warning in the Exchange Adm
 <img src="" image: Exchange Admin Center: Kevin Stroud's mailbox configured to forward to Carla Mendez/>
 
 
-FIX NEXT DOWN BELOW
-
 
 <h2>3. Tenant Health & Mail Flow Monitoring</h2>
 <p>When a user reports that an email never arrived, the first tool to reach for is Message Trace in the Exchange Admin Center. It lets an administrator search for any email by sender, recipient, 
@@ -140,88 +138,34 @@ recipient, and allows the administrator to categorize the threat. Microsoft revi
 <img src="https://i.imgur.com/hScAjo4.png"/>
 
 
-<h2>4. Device Inventory: Entra ID & Intune</h2>
-<p>Following enrollment, the full device inventory was reviewed across both the Entra Admin Center and the Intune Admin Center. The two views serve different purposes. Entra shows identity and join type, while Intune shows management and compliance status.</p>
+<h2>4. Mobile Workplace Support — Outlook Mobile</h2>
+<p>Supporting mobile users is a routine part of IT support. Many users access their work email from their personal phones and run into issues ranging from missing 
+Hiemails to sync failures. A few settings adjustments in Outlook Mobile resolve the majority of these complaints without needing to touch anything on the server side.</p>
 
-<h3>The Entra device list showed 7 devices with the following characteristics:</h3>
-<ul>
-  <li>Most devices joined via Microsoft Entra join (full join)</li>
-  <li>Some devices registered via Microsoft Entra registered (BYOD/partial enrollment)</li>
-  <li>MDM column reflected Microsoft Intune for fully managed devices</li>
-  <li>Compliance column showed a mix of compliant and noncompliant states depending on whether the device met policy requirements</li>
-</ul>
+<h2>Focused Inbox</h2>
+<p>Focused Inbox automatically sorts emails into two tabs — Focused and Other — based on what it thinks is important. While well intentioned, this feature is one of the most common reasons users report missing 
+emails. Turning it off puts all emails back into a single inbox view, which is simpler and more predictable for users who are not comfortable with the split.</p>
 
-<i>Entra joined vs. Entra registered</i>
-<br />
-<i>A device that is Entra joined is fully under organizational control. The device simply signs in with a work account and Intune can push any policy to it. A device that is Entra registered is typically a personal device where the user has added a work account but the organization has limited management authority. This distinction directly affects what compliance policies and Conditional Access rules apply to that device.</i>
-<br />
+<img src="" Outlook Mobile mail settings: Focused Inbox toggled off />
 
-<img src="https://i.imgur.com/lnmhzhu.png"/>
+<h2>Automatic Replies</h2>
+<p>Users who are away from their desk can set up automatic replies directly from their phone without needing access to a computer. This is useful during travel, time off, or periods of limited availability. 
+The automatic reply was configured to reply to everyone with a message letting senders know to expect a response within two business days.</p>
 
-<p>The Intune device list displayed five managed devices. Some devices were intentionally left without full Intune licensing to demonstrate the difference. The devices without the required license appear in the list but present zero MDM management and cannot have policies applied.</p>
-
-<img src="https://i.imgur.com/qbRvcfF.png"/>
+<img src="" Outlook Mobile Microsoft 365 account settings: Reset Account and Remove Account options visible />
 
 
 
-<h2>5. Dynamic Device Groups</h2>
-<p>A dynamic security group was created in Entra ID to automatically include Windows devices running a specific OS version. Unlike static groups where members are added manually, dynamic groups evaluate membership rules in real time. Any device that meets the rule is added automatically, and any device that no longer meets it is removed.</p>
-<h3>Membership rule configured:</h3>
-<ul>
-  <li><strong>Rule 1</strong>: deviceOSType equals Windows</li>
-  <li><strong>Rule 2</strong>: deviceOSVersion starts with 10.0.2</li>
-</ul>
 
-| Property | Operator | Value |
-|---|---|---|
-| `device.deviceOSType` | `-eq` | `"Windows"` |
-| `device.deviceOSVersion` | `-startsWith` | `"10.0.2"` |
 
-<i>Why use dynamic groups for device management?</i>
-<br />
-<i>In a growing organization, manually maintaining group membership is error prone and time consuming. Dynamic groups ensure that new devices are automatically included in the right policy scope the moment they enroll and meet the criteria. This way, no manual intervention is required. This is especially valuable for compliance policies and Autopilot deployment profiles.</i>
-<br />
+<h2>5. Outlook Command Line Switchesout
+</h2>
+<p>Outlook includes a set of command line switches that let an administrator target and fix specific problems without deleting the user's entire profile. These are run through the Windows 
+Run dialog and can resolve issues like corrupted inbox rules, broken views, or add-in related crashes. Full documentation for this section is covered in the dedicated subsection.</p>
 
-<img src="https://i.imgur.com/4M0L2MJ.png"/>
-
-<p>The rule was validated using the built in validation tool, which confirmed that enrolled devices matching the criteria were correctly included in the group.</p>
-
-<img src="https://i.imgur.com/kL1QrZa.png"/>
 
 <h2>6. Windows Autopilot: Zero Touch Provisioning</h2>
 <p>Windows Autopilot is a cloud based provisioning method that replaces traditional device imaging. Instead of manually configuring each machine, Autopilot uses a hardware identifier to recognize a device the moment it connects to the internet, then automatically applies corporate settings, apps, and policies, no administrator actions necessary.</p>
-
-<h3><strong>Hardware Hash Extraction</strong></h3>
-<p>To register the Windows VM with Autopilot, its unique hardware hash was extracted using a PowerShell script run directly on the machine. The script generated an AutopilotHWID.csv file containing the device's serial number and hardware fingerprint, which was then imported into the Intune portal.</p>
-
-<img src="https://i.imgur.com/TnlqZZk.png"/>
-
-<h3><strong>Device Import & Profile Assignment</strong></h3>
-<p>The CSV was imported into the Windows Autopilot Devices list in Intune. Upon import, the device appeared with a profile status of "Not assigned" while the deployment profile was being configured.</p>
-
-<img src="https://i.imgur.com/gkXlWtr.png"/>
-
-<h3><strong>Deployment Profile: Out of Box Experience</strong></h3>
-<h3>A user driven deployment profile was created to define the out of box experience for any device registered under this Autopilot configuration. Key settings configured:</h3>
-
-| Setting | Value |
-|---|---|
-| Deployment mode | User Driven |
-| Join to Microsoft Entra ID as | Microsoft Entra joined |
-| User account type | Standard (no local admin rights) |
-| Apply device name template | Yes - AUTOPILOT-%RAND:3% |
-| Privacy settings and license terms | Hidden |
-
-<i>Why set the user account type to Standard?</i>
-<br />
-<i>Giving end users local administrator rights on their machines is a common security gap. The security flaw allows them to install unauthorized software, disable security tools, or make system changes that break compliance. Setting the account type to Standard through Autopilot ensures that no user arrives on a new device with more access than they need.</i>
-<br />
-
-<img src="https://i.imgur.com/kCGooNL.png"/>
-
-<p>After the profile was created and assigned to the dynamic device group, the Autopilot device list was refreshed and the VMware VM's profile status updated from "Not assigned" to "Assigned", confirming the device is now registered and ready for zero touch provisioning.</p>
-
-<img src="https://i.imgur.com/SR8b0F0.png"/>
 
 
 
@@ -229,59 +173,6 @@ recipient, and allows the administrator to categorize the threat. Microsoft revi
 <h2>7. Compliance Policy: IT Devices</h2>
 <p>A Windows 10/11 compliance policy named "IT Devices Compliance" was created to define the minimum security requirements a device must meet before being considered trusted. Devices that fail any of these checks are immediately marked noncompliant, which integrates directly with Conditional Access to block access to company resources.</p>
 
-<h3>IT Devices Compliance: Policy Summary</h3>
-
-| Setting | Value |
-|---|---|
-| Platform | Windows 10 and later |
-| BitLocker | Required |
-| Secure Boot | Required |
-| Minimum OS version | Windows 11 |
-| Action on noncompliance | Mark device noncompliant - Immediately |
-
-<i>Why require BitLocker and Secure Boot?</i>
-<br />
-<i>BitLocker encrypts the device's hard drive which means if the device is lost or stolen, the data on it is unreadable without the recovery key. Secure Boot prevents the device from loading unauthorized software during startup, blocking a class of attacks that target the boot process before the operating system loads. Together, these two controls form the hardware security baseline for any managed Windows device.</i>
-<br />
-
-
-<img src="https://i.imgur.com/68AHz46.png"/>
-
-
-<h2>8. Device Configuration Profile: Control Panel Restrictions</h2>
-<p>A device restriction profile named "Control Panel Configurations" was created and assigned to the IT Devices group. This profile uses Intune's built in settings catalog to block specific areas of the Windows Control Panel and Settings app, preventing users from making changes that could compromise security or create support issues.</p>
-
-<h3>Settings blocked in this profile:</h3>
-
-<table>
-  <tr>
-    <td><b>System</b></td>
-    <td><b>Network and Internet</b></td>
-  </tr>
-  <tr>
-    <td><b>Apps</b></td>
-    <td><b>Accounts</b></td>
-  </tr>
-  <tr>
-    <td><b>Gaming</b></td>
-    <td><b>Privacy</b></td>
-  </tr>
-  <tr>
-    <td><b>Update and Security</b></td>
-    <td><b></b></td>
-  </tr>
-</table>
-
-<i>Why lock down Control Panel settings?</i>
-<br />
-<i>Allowing users unrestricted access to Control Panel settings is a common source of both security incidents and support tickets. Users modifying network settings, installing apps outside approved channels, or disabling security features can undermine the entire compliance posture. Locking these settings through policy ensures the device stays in a known, controlled state regardless of who is using it.</i>
-<br />
-
-<img src="https://i.imgur.com/3mVZuWB.png"/>
-
-<p>The profile was reviewed and confirmed before creation, showing the full list of blocked settings and the assigned group "IT Devices", which contains 3 devices and 0 users.</p>
-
-<img src="https://i.imgur.com/xDlsJ61.png"/>
 
 
 <h1>Key Takeaways</h1>
