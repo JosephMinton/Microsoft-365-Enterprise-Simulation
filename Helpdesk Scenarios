@@ -164,24 +164,24 @@ The automatic reply was configured to reply to everyone with a message letting s
 Run dialog and can resolve issues like corrupted inbox rules, broken views, or add-in related crashes. Full documentation for this section is covered in the dedicated subsection.</p>
 
 
-<h2>6. Windows Autopilot: Zero Touch Provisioning</h2>
-<p>Windows Autopilot is a cloud based provisioning method that replaces traditional device imaging. Instead of manually configuring each machine, Autopilot uses a hardware identifier to recognize a device the moment it connects to the internet, then automatically applies corporate settings, apps, and policies, no administrator actions necessary.</p>
+<h2>6. Outlook Troubleshooting</h2>
+<p>This subsection covers hands on troubleshooting of the most common Outlook issues encountered in a support environment — including add-in conflicts, broken search, repeated password prompts, application crashes, and Microsoft 365 repair. Each scenario 
+includes the likely cause and a step by step resolution path. Full documentation is covered in the dedicated subsection.</p>
 
 
 
 
-<h2>7. Compliance Policy: IT Devices</h2>
-<p>A Windows 10/11 compliance policy named "IT Devices Compliance" was created to define the minimum security requirements a device must meet before being considered trusted. Devices that fail any of these checks are immediately marked noncompliant, which integrates directly with Conditional Access to block access to company resources.</p>
+<h2>7. Advanced Administrative Automation with PowerShell</h2>
+<p>PowerShell allows administrators to manage Microsoft 365 at scale — performing tasks in seconds that would take hours through the admin portal. 
+This subsection covers automation scripts for user management, reporting, and bulk operations across the tenant. Full documentation is covered in the dedicated subsection.</p>
 
 
 
 <h1>Key Takeaways</h1>
 <ul>
-<li><strong>Configured Entra ID device settings to enable MDM enrollment for all users with a reduced device cap of 20 per user</li>
-<li><strong>Enrolled devices using both manual Entra ID join and Windows Autopilot, demonstrating the difference between registered and fully joined devices</li>
-<li><strong>Built a dynamic device group using OS type and version rules to automate policy targeting without manual membership management</li>
-<li><strong>Extracted hardware hashes via PowerShell and registered a VM with Windows Autopilot, progressing from "Not assigned" to "Assigned" profile status</li>
-<li><strong>Configured a user driven Autopilot deployment profile with Standard user accounts and a device name template for consistent naming at enrollment</li>
-<li><strong>Enforced BitLocker, Secure Boot, and minimum OS version requirements through a compliance policy tied to Conditional Access</li>
-<li><strong>Applied a device restriction profile blocking key Control Panel sections to maintain a controlled, auditable device state</li>
+<li><strong>Configured a SIP address and a shorter email alias to improve communication clarity for end users</li>
+<li><strong>Set up email forwarding in Exchange to redirect mail for a departed or reassigned user without disrupting incoming communication</li>
+<li><strong>Used Message Trace to investigate a mail delivery scenario and submitted a suspicious email to Microsoft Defender for phishing analysis</li>
+<li><strong>Resolved common mobile Outlook issues by disabling Focused Inbox, configuring automatic replies, and demonstrating the Reset Account workflow</li>
+<li><strong>Introduced Outlook command line switches and PowerShell automation as dedicated subsections covering targeted repair and administrative efficiency</li>
 </ul>
