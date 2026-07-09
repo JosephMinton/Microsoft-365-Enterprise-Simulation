@@ -1,4 +1,4 @@
-# [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
+this# [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
 # [Help Desk Scenarios 🛠️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
 
 
@@ -15,7 +15,7 @@ and resolving common Outlook issues. It also introduces command line troubleshoo
 <li><strong>Set up email forwarding for users who have changed roles or left the organization</li>
 <li><strong>Use Message Trace to track and investigate mail delivery issues</li>
 <li><strong>Support mobile users through Outlook Mobile settings and account management</li>
-<li><strong>Troubleshoot common Outlook issues including add-in conflicts, search failures, and credential problems</li>
+<li><strong>Troubleshoot common Outlook issues including add in conflicts, search failures, and credential problems</li>
 <li><strong>Use Outlook command line switches for targeted repairs without touching the user's profile</li>
 <li><strong>Automate administrative tasks using PowerShell</li>
 </ul>
@@ -118,12 +118,12 @@ recipient, and allows the administrator to categorize the threat. Microsoft revi
 <img src="https://i.imgur.com/yeky4sg.png"/>
 
 
-<h2>4. Mobile Workplace Support - Outlook Mobile</h2>
+<h2>4. Mobile Workplace Support: Outlook Mobile</h2>
 <p>Supporting mobile users is a routine part of IT support. Many users access their work email from their personal phones and run into issues ranging from missing 
 Hiemails to sync failures. A few settings adjustments in Outlook Mobile resolve the majority of these complaints without needing to touch anything on the server side.</p>
 
 <h2>Focused Inbox</h2>
-<p>Focused Inbox automatically sorts emails into two tabs - Focused and Other - based on what it thinks is important. While well intentioned, this feature is one of the most common reasons users report missing 
+<p>Focused Inbox automatically sorts emails into two tabs, Focused and Other, based on what it thinks is important. While well intentioned, this feature is one of the most common reasons users report missing 
 emails. Turning it off puts all emails back into a single inbox view, which is simpler and more predictable for users who are not comfortable with the split.</p>
 
 <img src="https://i.imgur.com/ewbyCX1.jpeg"/>
@@ -135,7 +135,7 @@ The automatic reply was configured to reply to everyone with a message letting s
 <img src="https://i.imgur.com/y6Vj0vQ.jpeg"/>
 
 <h2>Reset Account</h2>
-<p>When a user's mobile email stops syncing, the first step is always to reset the account rather than remove it. Resetting re-establishes the connection to the server without deleting any local data. 
+<p>When a user's mobile email stops syncing, the first step is always to reset the account rather than remove it. Resetting restores the connection to the server without deleting any local data. 
 Removing the account is a last resort because it wipes all locally stored email from the app and requires the user to sign back in and wait for everything to sync again.</p>
 
 <img src="https://i.imgur.com/5IlZI72.jpeg"/>
@@ -147,21 +147,22 @@ Removing the account is a last resort because it wipes all locally stored email 
 <h2>5. Outlook Command Line Switches
 </h2>
 <p>Outlook includes a set of command line switches that let an administrator target and fix specific problems without deleting the user's entire profile. These are run through the Windows 
-Run dialog and can resolve issues like corrupted inbox rules, broken views, or add-in related crashes. Full documentation for this section is covered in the dedicated subsection.</p>
+Run dialog and can resolve issues like corrupted inbox rules, broken views, or add in related crashes. Full documentation for this section is covered in the dedicated subsection.</p>
 
+<h3>Dedicated documentation section coming soon</h3>
 
 <h2>6. Outlook Troubleshooting</h2>
-<p>This subsection covers hands on troubleshooting of the most common Outlook issues encountered in a support environment - including add-in conflicts, broken search, repeated password prompts, application crashes, and Microsoft 365 repair. Each scenario 
+<p>This subsection covers hands on troubleshooting of the most common Outlook issues encountered in a support environment such as add in conflicts, broken search, repeated password prompts, application crashes, and Microsoft 365 repair. Each scenario 
 includes the likely cause and a step by step resolution path. Full documentation is covered in the dedicated subsection.</p>
 
-
+<h3>Dedicated documentation section coming soon</h3>
 
 
 <h2>7. Advanced Administrative Automation with PowerShell</h2>
-<p>PowerShell allows administrators to manage Microsoft 365 at scale - performing tasks in seconds that would take hours through the admin portal. 
+<p>PowerShell allows administrators to manage Microsoft 365 at scale. Powershell helps expedite tasks in seconds that would take hours through the admin portal. 
 This subsection covers automation scripts for user management, reporting, and bulk operations across the tenant. Full documentation is covered in the dedicated subsection.</p>
 
-
+<h3>Dedicated documentation section coming soon</h3>
 
 <h1>Key Takeaways</h1>
 <ul>
