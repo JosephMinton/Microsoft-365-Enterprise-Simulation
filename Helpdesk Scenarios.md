@@ -1,11 +1,10 @@
 # [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
-# [Help Desk Scenarios ](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
-<h1>Intune: Device Compliance & MDM </h1>
+# [Help Desk Scenarios 🛠️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
 
 
 <h2>Description</h2>
 Phase 4 shifts from building and securing the environment to operating and maintaining it. This phase covers the day to day administrative tasks that IT support staff 
-encounter in real organizations - setting up communication addresses, configuring mail routing, tracking down missing emails, supporting mobile users, 
+encounter in real organizations like setting up communication addresses, configuring mail routing, tracking down missing emails, supporting mobile users, 
 and resolving common Outlook issues. It also introduces command line troubleshooting and PowerShell automation as more advanced tools in the administrator's toolkit.
 <br />
 
@@ -48,7 +47,7 @@ and resolving common Outlook issues. It also introduces command line troubleshoo
 
 <h2>1. Unified Communications: SIP Address & Email Alias Setup</h2>
 <p>A SIP (Session Initiation Protocol) address is a contact identifier used in voice and video communication systems. It works like a phone number that lives everywhere at 
-once - other users can call or message a person using their SIP address across platforms like Teams or Skype for Business. In Exchange, 
+once. Other users can call or message a person using their SIP address across platforms like Teams or Skype for Business. In Exchange, 
 each mailbox can have multiple address types assigned to it including SIP, SMTP (standard email), and SPO (SharePoint).</p>
 <h3>In this example, the default mailbox showed three address types already in place:
 </h3>
@@ -79,11 +78,11 @@ work. This is common when a user changes their name, changes roles, or simply ne
 <img src="https://i.imgur.com/cDJulrA.png"/>
 
 
-<h2>2. Mail Flow - Email Forwarding</h2>
+<h2>2. Mail Flow: Email Forwarding</h2>
 <p>Email forwarding is used when a user changes roles or leaves the organization and someone else needs to receive their incoming mail. Instead of the email bouncing back or sitting unread, 
 it gets automatically redirected to another mailbox. This keeps communication flowing without requiring the sender to update their contact information.</p>
 
-<h3>In this example, Kevin Stroud's mailbox was configured to forward all incoming email to Carla Mendez. This simulates a common scenario - Kevin may have been reassigned or departed, and Carla is now covering his responsibilities.</h3>
+<h3>In this example, Kevin Stroud's mailbox was configured to forward all incoming email to Carla Mendez. In this scenario, Kevin may have been reassigned or departed from the company and Carla is now covering his responsibilities during the role transitions.</h3>
 
 <ul>
   <li><strong>Forward all emails sent to this mailbox</strong>: On</li>
@@ -93,7 +92,7 @@ it gets automatically redirected to another mailbox. This keeps communication fl
 
 <i>Internal vs external forwarding</i>
 <br />
-<i>Forwarding to an internal address keeps mail within the organization and is straightforward to configure. Forwarding to an external address - such as a personal Gmail account - carries security risks because it moves company email outside 
+<i>Forwarding to an internal address keeps mail within the organization and is straightforward to configure. Forwarding to an external address such as a personal Gmail account carries security risks because it moves company email outside 
 of the tenant's control. Microsoft flags this with a warning in the Exchange Admin Center and recommends limiting external forwarding through outbound spam policies.</i>
 <br />
 
@@ -104,7 +103,7 @@ of the tenant's control. Microsoft flags this with a warning in the Exchange Adm
 
 <h2>3. Tenant Health & Mail Flow Monitoring</h2>
 <p>When a user reports that an email never arrived, the first tool to reach for is Message Trace in the Exchange Admin Center. It lets an administrator search for any email by sender, recipient, 
-date, or subject and see exactly what happened to it - whether it was delivered, blocked, delayed, or bounced.</p>
+date, or subject and see if it was delivered, blocked, delayed, or bounced.</p>
 </br>
 <p>A Message Trace was performed to track an email sent from an external Gmail account to the lab tenant. The trace confirmed the message was successfully delivered to the recipient's inbox, including the exact delivery timestamp.</p>
 
