@@ -73,7 +73,7 @@ WRITE SCOPE: USER PROVISIONING AND MANAGEMENT
 Connect-MgGraph -Scopes "User.ReadWrite.All","Directory.AccessAsUser.All"
 ```
 
-<img src="" PowerShell: Connect-MgGraph authentication output, "Welcome to Microsoft Graph" confirmed/>
+<img src="https://i.imgur.com/TTSkq4o.png"/>
 
 <p>After connecting, the current state of the tenant was reviewed by querying all existing users. This confirmed who was already in the tenant before any new provisioning work began.</p>
 
@@ -83,7 +83,7 @@ VIEWING EXISTING USERS
 Get-MgUser -All | Select-Object DisplayName, Id, UserPrincipalName
 ```
 
-<img src="" PowerShell: Get-MgUser output showing all existing users in the tenant/>
+<img src="https://i.imgur.com/Qs0Fp0M.png"/>
 
 
 
@@ -96,7 +96,7 @@ CHECK AVAILABLE LICENSES
 Get-MgSubscribedSku | Select -Property Sku*, ConsumedUnits -ExpandProperty PrepaidUnits | Format-List
 ```
 
-<img src="" PowerShell: Get-MgSubscribedSku showing SPB license, 5 consumed of 25 available/>
+<img src="https://i.imgur.com/9OFD26M.png"/>
 
 <p>The user was then created with a display name, UPN, mail nickname, usage location, and a password profile. Usage location must be set before a license can be assigned — it is a required field in Microsoft 365 for compliance and data residency purposes.</p>
 
@@ -114,7 +114,7 @@ New-MgUser -DisplayName "Mikasa Ackerman" `
   -AccountEnabled:$true
 ```
 
-<img src="" PowerShell: New-MgUser output confirming Mikasa Ackerman created with DisplayName, Id, and UPN/>
+<img src="https://i.imgur.com/EjyHH4f.png"/>
 
 <p>The SPB (Microsoft 365 Business Premium) license was then assigned to Mikasa and confirmed via a follow-up query.</p>
 
@@ -127,7 +127,7 @@ Set-MgUserLicense -UserId "mikasaa@JosephMintonTech.onmicrosoft.com" `
 Get-MgUserLicenseDetail -UserId "mikasaa@JosephMintonTech.onmicrosoft.com" | Select-Object SkuPartNumber
 ```
 
-<img src=""PowerShell: Set-MgUserLicense confirming SPB license assigned, Get-MgUserLicenseDetail returning SPB/>
+<img src="https://i.imgur.com/ARqxGd5.png"/>
 
 <p>As a bonus step, the usage location was updated across all users in the tenant from US to France and back to US — demonstrating how a bulk attribute change can be applied to every user in a single command rather than updating each account individually.</p>
 
@@ -137,16 +137,16 @@ Get-MgUser | ForEach-Object { Update-MgUser -UserId $_.Id -UsageLocation "FR" }
 Get-MgUser | ForEach-Object { Update-MgUser -UserId $_.Id -UsageLocation "US" }
 ```
 
-<img src=""PowerShell: UsageLocation bulk update commands cycling all users from US to FR and back to US/>
+<img src="https://i.imgur.com/bPVcMva.png"/>
 <p>Mikasa's account was then verified in the M365 Admin Center, confirming her profile showed the correct license and United States location.</p>
-<img src=""M365 Admin Center: Mikasa Ackerman profile showing Business Premium license assigned, United States location/>
+<img src="https://i.imgur.com/Vg82Sir.png"/>
 
 
 <h2>4. Bulk User Provisioning — 15 Users via CSV</h2>
 <p>To simulate a real onboarding event, 15 user accounts were provisioned in a single scripted operation using a CSV file. Each row in the CSV contained a complete user record — UPN, first name, last name, 
 display name, usage location, and mail nickname. The PowerShell loop iterated through every record, created the account, and assigned the SPB license automatically.</p>
 
-<img src=""Notepad: NewAccounts.csv showing 15 Attack on Titan user records with full attribute structure/>
+<img src="https://i.imgur.com/i3MQs1g.png"/>
 
 
 ```powershell
@@ -171,11 +171,11 @@ foreach ($user in $users) {
 }
 ```
 
-<img src="" PowerShell: bulk provisioning loop executing, all 15 users created with output showing DisplayName, Id, UPN/>
+<img src="https://i.imgur.com/ElQp7HH.png"/>
 
 <p>All 15 accounts were verified in the M365 Admin Center, filtered by Business Premium license and Sign-in status Allowed, confirming every user was created and licensed correctly.</p>
 
-<img src="" M365 Admin Center: Active users filtered by Business Premium and Sign-in Allowed, all 15 users visible/>
+<img src="https://i.imgur.com/NSMIVf2.png"/>
 
 <i>Why CSV bulk provisioning matters</i>
 <br />
@@ -196,9 +196,9 @@ Update-MgUser -UserId "mikasaa@JosephMintonTech.onmicrosoft.com" -AccountEnabled
 Get-MgUser -UserId "mikasaa@JosephMintonTech.onmicrosoft.com" `
   -Property "DisplayName,AccountEnabled" | Select-Object DisplayName, AccountEnabled
 ```
-<img src=""PowerShell: Update-MgUser executed, Get-MgUser confirming AccountEnabled returns False for Mikasa/>
+<img src="https://i.imgur.com/5DL1rAx.png"/>
 <p>The block was confirmed in the M365 Admin Center, where Mikasa's account appeared under the Sign-in status Blocked filter.</p>
-<img src=""M365 Admin Center: Active users filtered by Sign-in status Blocked, Mikasa Ackerman visible with Business Premium license/>
+<img src="https://i.imgur.com/ZEtQklX.png"/>
 
 <h3><strong>Force Password Change on Next Login</strong></h3>
 <p>A temporary password was set on Mikasa's account with the ForceChangePasswordNextSignIn flag set to true. This ensures that even if the temporary password is shared or intercepted, the user must replace it immediately on first login.</p>
@@ -211,7 +211,7 @@ Update-MgUser -UserId "mikasaa@JosephMintonTech.onmicrosoft.com" `
       ForceChangePasswordNextSignIn = $true
   }
 ```
-<img src=""PowerShell: Update-MgUser password profile set, ForceChangePasswordNextSignIn confirmed as true for Mikasa/>
+<img src="https://i.imgur.com/aphdX33.png"/>
 
 
 
@@ -229,7 +229,7 @@ PRE-REMOVAL VERIFICATION
 Get-MgUserLicenseDetail -UserId "johnd@JosephMintonTech.onmicrosoft.com"
 ```
 
-<img src="" PowerShell: Get-MgUserLicenseDetail showing SPB license present on John Doe pre-removal/>
+<img src="https://i.imgur.com/f7EdwYI.png"/>
 
 REMOVE LICENSE
 ```powershell
@@ -240,7 +240,7 @@ Set-MgUserLicense -UserId "johnd@JosephMintonTech.onmicrosoft.com" `
 Get-MgUserLicenseDetail -UserId "johnd@JosephMintonTech.onmicrosoft.com"
 ```
 
-<img src="" PowerShell: Get-MgUserLicenseDetail returning empty after removal — license successfully released/>
+<img src="https://i.imgur.com/ubiYPHF.png"/>
 
 <h3><strong>Account Deletion and Verification</strong></h3>
 <p>John's account was then deleted and confirmed in both the PowerShell recycle bin query and the M365 Admin Center deleted users list.</p>
@@ -252,8 +252,8 @@ Remove-MgUser -UserId "johnd@JosephMintonTech.onmicrosoft.com"
 Get-MgDirectoryDeletedItemAsUser -All
 ```
 
-<img src="" PowerShell: Get-MgDirectoryDeletedItemAsUser showing John Doe in the recycle bin alongside other deleted users/>
-<img src="" M365 Admin Center: Deleted users list with John Doe highlighted/>
+<img src="https://i.imgur.com/3nLlUsm.png"/>
+<img src="https://i.imgur.com/54OQBpw.png"/>
 
 
 
@@ -270,7 +270,7 @@ Restore-MgDirectoryDeletedItem -DirectoryObjectId "994c1b7b-3bde-4693-a96f-beaf2
 Get-MgUser -UserId "johnd@JosephMintonTech.onmicrosoft.com" `
   -Property "DisplayName,AccountEnabled" | Select-Object DisplayName, AccountEnabled
 ```
-<img src=""PowerShell: recycle bin query, Restore-MgDirectoryDeletedItem executed, verification showing John Doe restored with AccountEnabled False/>
+<img src="https://i.imgur.com/pIJKRzh.png"/>
 
 <i>Why does AccountEnabled return False after restore?</i>
 <br />
