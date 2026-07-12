@@ -1,5 +1,5 @@
 # [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
-# [Help Desk Scenarios 🛠️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
+# [Help Desk Scenarios 🛠️](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Helpdesk%20Scenarios.md)
 
 
 <h2>Description</h2>
