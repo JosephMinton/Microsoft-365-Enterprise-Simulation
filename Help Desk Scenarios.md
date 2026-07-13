@@ -1,5 +1,5 @@
 # [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
-# [Help Desk Scenarios 🛠️](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Helpdesk%20Scenarios.md)
+# Help Desk Scenarios 🛠️
 
 
 <h2>Description</h2>
@@ -68,11 +68,10 @@ each mailbox can have multiple address types assigned to it including SIP, SMTP 
   <li>This was set as the primary email address going forward.</li>
 </ul>
 
-<i>Why add an email alias?</i>
-<br />
-<i>Long or complex email addresses slow people down and lead to typos. Adding a shorter alias gives users a cleaner address to share while the original address continues to 
-work. This is common when a user changes their name, changes roles, or simply needs a more practical address for external communication.</i>
-<br />
+> *__Why add an email alias?__*
+>
+> *Long or complex email addresses slow people down and lead to typos. Adding a shorter alias gives users a cleaner address to share while the original address continues to 
+> work. This is common when a user changes their name, changes roles, or simply needs a more practical address for external communication.*
 
 <img src="https://i.imgur.com/4iJ2vPi.png"/>
 <img src="https://i.imgur.com/cDJulrA.png"/>
@@ -84,18 +83,26 @@ it gets automatically redirected to another mailbox. This keeps communication fl
 
 <h3>In this example, Kevin Stroud's mailbox was configured to forward all incoming email to Carla Mendez. In this scenario, Kevin may have been reassigned or departed from the company and Carla is now covering his responsibilities during the role transitions.</h3>
 
-<ul>
-  <li><strong>Forward all emails sent to this mailbox</strong>: On</li>
-  <li><strong>Forwarding address</strong>: Carla Mendez (internal)</li>
-  <li><strong>Deliver message to both forwarding address and mailbox</strong>: Enabled</li>
-</ul>
 
-<i>Internal vs external forwarding</i>
-<br />
-<i>Forwarding to an internal address keeps mail within the organization and is straightforward to configure. Forwarding to an external address such as a personal Gmail account carries security risks because it moves company email outside 
-of the tenant's control. Microsoft flags this with a warning in the Exchange Admin Center and recommends limiting external forwarding through outbound spam policies.</i>
-<br />
+<table>
+  <tr>
+    <td><b><strong>Forward all emails sent to this mailbox</strong></b></td>
+    <td><b>On</b></td>
+  </tr>
+  <tr>
+    <td><b><strong>Forwarding address</strong></b></td>
+    <td><b>Carla Mendez (internal)</b></td>
+  </tr>
+  <tr>
+    <td><b><strong>Deliver message to both forwarding address and mailbox</strong></b></td>
+    <td><b>Enabled</b></td>
+  </tr>
+</table>
 
+> *__Internal vs external forwarding__*
+>
+> *Forwarding to an internal address keeps mail within the organization and is straightforward to configure. Forwarding to an external address such as a personal Gmail account carries security risks because it moves company email outside 
+> of the tenant's control. Microsoft flags this with a warning in the Exchange Admin Center and recommends limiting external forwarding through outbound spam policies.*
 
 <img src="https://i.imgur.com/yguR6Ku.png"/>
 
@@ -109,11 +116,10 @@ date, or subject and see if it was delivered, blocked, delayed, or bounced.</p>
 
 <img src="https://i.imgur.com/dANd4hH.png"/>
 
-<i>When an email looks suspicious</i>
-<br />
-<i>If a traced email appears to be spam, phishing, or malware, it can be submitted directly to Microsoft for analysis through the Microsoft Defender portal. The submission form accepts the email's network message ID, identifies the affected 
-recipient, and allows the administrator to categorize the threat. Microsoft reviews the submission and uses it to improve detection across the platform.</i>
-<br />
+> *__When an email looks suspicious__*
+>
+> *If a traced email appears to be spam, phishing, or malware, it can be submitted directly to Microsoft for analysis through the Microsoft Defender portal. The submission form accepts the email's network message ID, identifies the affected 
+> recipient, and allows the administrator to categorize the threat. Microsoft reviews the submission and uses it to improve detection across the platform.*
 
 <img src="https://i.imgur.com/yeky4sg.png"/>
 
