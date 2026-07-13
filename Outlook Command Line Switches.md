@@ -35,32 +35,34 @@ Outlook command line switches are special instructions you add to the end of the
 <p>When Outlook crashes every time it opens, the most likely cause is a broken or conflicting add-in. Running Outlook in Safe Mode loads the application without any add-ins active, which tells you immediately whether an add-in is the problem. If Outlook opens fine in Safe Mode but crashes normally, the add-in is the culprit.</p>
 <h3>To run it, press Windows + R to open the Run dialog, type the command, and press OK.
 </h3>
-'''powershell
+```powershell
 outlook.exe /safe
-'''
-<img src=""/>
+```
+<img src="https://i.imgur.com/AjCSYI4.png"/>
 
 <p>Outlook opens in Safe Mode with a simplified interface. Once inside, navigate to File, then Options, then Add-ins. At the bottom of the page, make sure the Manage dropdown is set to COM Add-ins and click Go.</p>
-<img src=""/>
+<img src="https://i.imgur.com/zz1Gr0G.png"/>
 
 <p>The Add-ins page in Outlook Options shows all active and inactive add-ins installed on the machine. From here, clicking Go opens the COM Add-ins window where individual add-ins can be toggled on or off.</p>
-<img src=""/>
+<img src="https://i.imgur.com/LxZxool.png"/>
 
 <p>In the COM Add-ins popup, uncheck the add-in that is causing the problem. Sometimes Outlook has already unchecked it automatically after a crash — re-enabling it or leaving it off and restarting Outlook normally is usually enough to resolve the issue.</p>
-<img src=""/>
+<img src="https://i.imgur.com/Xa0Bknd.png"/>
 
 
 <h2>Switch 2</h2>
 <h2>outlook.exe /cleancategories — Reset Category Colors</h2>
-<p>Outlook lets users assign color categories to emails for quick visual organization. In shared mailbox environments, these categories can become corrupted or stop syncing correctly across team members. Running this switch clears all custom category names and color assignments and restores Outlook's default category set.</p>
-'''powershell
+<p>Outlook lets users assign color categories to emails for quick visual organization. In shared mailbox environments, these categories can become corrupted or stop syncing correctly across team members. Running this switch clears all custom category names and color assignments and restores Outlook's default category set. Below are two visuals compared to one another.</p>
+
+```powershell
 outlook.exe /cleancategories
-'''
+```
 > *__Heads up__*
 >
 > *This switch removes all custom category names and colors permanently. Any categories the user has created will need to be set up again after running it. Make sure the user is aware before running this command.*
 
-<img src=""/>
+<img src="https://i.imgur.com/bBzGQ7u.png"/>
+<img src="https://i.imgur.com/b7N8X9r.png"/>
 
 
 <h2>Switch 3</h2>
@@ -68,14 +70,14 @@ outlook.exe /cleancategories
 <p>Inbox rules in Outlook automatically sort, move, flag, or delete incoming emails based on conditions the user sets up. Over time these rules can become corrupted — they stop running, 
 throw error messages, or conflict with each other. This switch deletes all client-side rules, giving the user a clean slate to rebuild from.</p>
 
-'''powershell
+```powershell
 outlook.exe /cleanclientrules
-'''
+```
 
 <p>The before and after screenshots below show a rule called "sent only to me" that was active before the command was run. After running the switch, the same rule appears unchecked — confirming the client rules were successfully cleared.</p>
 
-<img src=""/>
-<img src=""/>
+<img src="https://i.imgur.com/4g7S1hP.png"/>
+<img src="https://i.imgur.com/rxmEBhy.png"/>
 
 > *__Client rules vs server rules__*
 >
@@ -87,14 +89,14 @@ outlook.exe /cleanclientrules
 <h2>outlook.exe /cleanviews — Reset the Outlook Layout</h2>
 <p>Outlook allows users to heavily customize the layout — column widths, sort orders, reading pane positions, folder views, and more. If a user has made too many changes and the interface becomes confusing or broken, this switch resets everything back to the default view. It is also useful when a layout change causes certain emails or folders to appear missing.</p>
 
-'''powershell
+```powershell
 outlook.exe /cleanviews
-'''
+```
 
 <p>The two screenshots below show the difference. The first shows Outlook with a customized layout — tighter spacing, adjusted columns, and a modified view. After running the switch, Outlook reverts to the standard default layout with all views restored to their original settings.</p>
 
-<img src=""/>
-<img src=""/>
+<img src="https://i.imgur.com/dLdWCi9.png"/>
+<img src="https://i.imgur.com/EEBIkpF.png"/>
 
 
 
@@ -103,11 +105,11 @@ outlook.exe /cleanviews
 <p>The reading pane automatically previews whichever email is selected when Outlook opens. If a corrupted or unusually large email is at the top of the inbox, Outlook may freeze or crash every time it tries to render it 
 in the preview. Running this switch opens Outlook without the reading pane active, letting the administrator access the inbox and deal with the problematic email without triggering the crash.</p>
 
-'''powershell
+```powershell
 outlook.exe /nopreview
-'''
+```
 
-<img src=""/>
+<img src="https://i.imgur.com/V27usXq.png"/>
 
 > *__What to do once Outlook is open__*
 >
