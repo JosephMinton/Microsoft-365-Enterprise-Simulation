@@ -35,9 +35,11 @@ Outlook command line switches are special instructions you add to the end of the
 <p>When Outlook crashes every time it opens, the most likely cause is a broken or conflicting add-in. Running Outlook in Safe Mode loads the application without any add-ins active, which tells you immediately whether an add-in is the problem. If Outlook opens fine in Safe Mode but crashes normally, the add-in is the culprit.</p>
 <h3>To run it, press Windows + R to open the Run dialog, type the command, and press OK.
 </h3>
+
 ```powershell
 outlook.exe /safe
 ```
+
 <img src="https://i.imgur.com/AjCSYI4.png"/>
 
 <p>Outlook opens in Safe Mode with a simplified interface. Once inside, navigate to File, then Options, then Add-ins. At the bottom of the page, make sure the Manage dropdown is set to COM Add-ins and click Go.</p>
