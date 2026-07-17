@@ -125,8 +125,7 @@ date, or subject and see if it was delivered, blocked, delayed, or bounced.</p>
 
 
 <h2>4. Mobile Workplace Support: Outlook Mobile</h2>
-<p>Supporting mobile users is a routine part of IT support. Many users access their work email from their personal phones and run into issues ranging from missing 
-Hiemails to sync failures. A few settings adjustments in Outlook Mobile resolve the majority of these complaints without needing to touch anything on the server side.</p>
+<p>Supporting mobile users is a routine part of IT support. Many users access their work email from their personal phones and run into issues ranging from missing emails to sync failures. A few settings adjustments in Outlook Mobile resolve the majority of these complaints without needing to touch anything on the server side.</p>
 
 <h2>Focused Inbox</h2>
 <p>Focused Inbox automatically sorts emails into two tabs, Focused and Other, based on what it thinks is important. While well intentioned, this feature is one of the most common reasons users report missing 
