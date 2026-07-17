@@ -53,11 +53,11 @@ Consistent naming conventions support predictable account identifiers, simplifie
   <li>"Force password change on first login" enabled as a security baseline</li>
   <li>License assignment applied at creation</li>
 </ul>
-<i>Why force a password change on first login?</i>
-<br />
-<i>System generated passwords are often distributed via email, chat, or printed handouts. All of which carry exposure risk. Forcing a change at first login ensures 
-that no one other than the account owner retains a working credential, closing a common attack vector especially relevant during bulk onboarding.</i>
-<br />
+
+> *__Why force a password change on first login?__*
+>
+> *System generated passwords are often distributed via email, chat, or printed handouts. All of which carry exposure risk. Forcing a change at first login ensures 
+that no one other than the account owner retains a working credential, closing a common attack vector especially relevant during bulk onboarding.*
 
 <img src="https://i.imgur.com/lFsM1bb.png" alt="Add a user"/>
 <img src="https://i.imgur.com/W3JnPpS.png" alt="Display force change password on first login"/>
@@ -97,11 +97,11 @@ the permissions necessary for their designated function. Rather than assigning G
   <li>Deletion of users or the tenant</li>
 </ul>
 
-<i>Why avoid Global Administrator for everyday accounts?</i>
-<br />
-<i>Global Admin is the highest privilege level in a Microsoft 365 tenant. It's basically the equivalent to root access. Assigning it broadly increases the 
+> *__Why avoid Global Administrator for everyday accounts?__*
+>
+> *Global Admin is the highest privilege level in a Microsoft 365 tenant. It's basically the equivalent to root access. Assigning it broadly increases the 
 blast radius of any compromised account. Scoped roles like Helpdesk Administrator limit what an attacker can do if credentials are stolen, and enforce 
-accountability by restricting access to only what each role legitimately requires.</i>
+accountability by restricting access to only what each role legitimately requires.*
 
 <img src="https://i.imgur.com/9kVSe6Z.png" alt="Manage Roles pane: User checked, Global Administrator unchecked"/>
 
@@ -126,10 +126,10 @@ a common enterprise architecture where organizations maintain an IdP outside of 
   <li>Integration confirmed via successful application status in the Okta dashboard</li>
 </ul>
 
-<i>Why use SSO?</i>
-<br />
-<i>Single Sign-On reduces the total number of credential sets users must manage. Password related help desk tickets routinely account for 20–50% of request volume in large 
-organizations and SSO directly reduces that load. It also consolidates authentication events into a single auditable stream, simplifying anomaly detection and incident response.</i>
+> *__Why use SSO?__*
+>
+> *Single Sign-On reduces the total number of credential sets users must manage. Password related help desk tickets routinely account for 20–50% of request volume in large 
+organizations and SSO directly reduces that load. It also consolidates authentication events into a single auditable stream, simplifying anomaly detection and incident response.*
 
 <img src="https://i.imgur.com/Cuhp9ea.png" alt="Okta dashboard showing successfully integrated"/>
 <img src="https://i.imgur.com/Fw2o00Y.png" alt="Integration"/>
