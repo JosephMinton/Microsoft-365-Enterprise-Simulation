@@ -3,7 +3,7 @@
 
 
 <h2>Description</h2>
-Phase 4 shifts from building and securing the environment to operating and maintaining it. This phase covers the day to day administrative tasks that IT support staff 
+Phase four shifts from building and securing the environment to operating and maintaining it. This phase covers the day to day administrative tasks that IT support staff 
 encounter in real organizations like setting up communication addresses, configuring mail routing, tracking down missing emails, supporting mobile users, 
 and resolving common Outlook issues. It also introduces command line troubleshooting and PowerShell automation as more advanced tools in the administrator's toolkit.
 <br />
