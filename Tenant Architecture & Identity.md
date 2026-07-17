@@ -24,13 +24,16 @@ directory exploration, and external identity provider integration via Okta SSO.
 
 <h2>Technologies Used 🧪</h2>
 
- - <b>Microsoft 365 Business Premium Trial</b> 
- - <b>Microsoft Entra ID (Azure AD)</b>
- - <b>M365 Admin Center</b>
-
-<h2>Environment</h2>
-
-- <b>Cloud based (no local VMs)</b> 
+<table>
+  <tr>
+    <td><b>Microsoft 365 Business Premium Trial</b></td>
+    <td><b>Microsoft Entra ID (Azure AD)</b></td>
+  </tr>
+  <tr>
+    <td><b>M365 Admin Center</b></td>
+    <td><b></b></td>
+  </tr>
+</table>
 
 <h2>1. Environment & Admin Provisioning</h2>
 <p>The lab environment was provisioned using the Microsoft 365 Business Premium 30 day trial, which provides 25 user licenses and access to core enterprise services including Entra ID, SharePiont, and Exchange. As the lab expanded into advanced security and compliance work, additional trials were layered in separately. Azure, Intune, and Okta activated as those phases of the lab required them.</p>
