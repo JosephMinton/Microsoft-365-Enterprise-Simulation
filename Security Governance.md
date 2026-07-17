@@ -58,24 +58,23 @@ The user was assigned individually for this demo. In a real work environment, th
 
 
 
-<h2>2. Teams Governance - Messaging & Guest Access Policies</h2>
+<h2>2. Teams Governance: Messaging & Guest Access Policies</h2>
 <p>Microsoft Teams was configured to control who can communicate with whom. Two types of policies were set up. One for internal employees and one for external guests, ensuring communication stays within appropriate boundaries for a corporate environment.
 </p>
 
 <h3>Internal Messaging Policy</h3>
 
-<i>Why restrict message deletion and editing?</i>
-<br />
-<i>Allowing users to delete or edit sent messages undermines the integrity of communication records. In regulated industries, chat logs may be subject to 
-compliance holds or eDiscovery requests. if the ability of deletion was permitted, there would likely be gaps within the audit trail.
-Turning these off ensures that messages cannot be edited or deleted across the organization.</i>
-<br />
+> *__Why restrict message deletion and editing?__*
+>
+> *Allowing users to delete or edit sent messages undermines the integrity of communication records. In regulated industries, chat logs may be subject to 
+> compliance holds or eDiscovery requests. if the ability of deletion was permitted, there would likely be gaps within the audit trail.
+> Turning these off ensures that messages cannot be edited or deleted across the organization.*
 
 <h4>A custom messaging policy was configured with the following restrictions applied to internal users.</h4>
 
 <img src="https://i.imgur.com/9PUMo8A.png" />
 
-<h3>Guest Access - Messaging Settings</h3>
+<h3>Guest Access: Messaging Settings</h3>
 <h4>Guest access was left enabled to support B2B collaboration scenarios, but heavily restricted at the feature level. 
 All editing and deleting options were turned off for guest users:</h4>
 
@@ -84,34 +83,57 @@ All editing and deleting options were turned off for guest users:</h4>
 <img src="https://i.imgur.com/eOSIQWf.png" />
 
 
-<h3>Guest Access - Meeting Settings</h3>
+<h3>Guest Access: Meeting Settings</h3>
 <h4>Screen sharing was explicitly disabled for guest participants in meetings. This prevents external users from presenting content to internal audiences without prior authorization.</h4>
 
-<ul>
-  <li><strong>Screen sharing</strong> - Not enabled</li>
-  <li><strong>Video conferencing</strong> - On (guests can join with video)</li>
-  <li><strong>External participants can get control</strong> - Off</li>
-</ul>
+<table>
+  <tr>
+    <td><b>Screen sharing</b></td>
+    <td><b>Not enabled</b></td>
+  </tr>
+  <tr>
+    <td><b>Video conferencing</b></td>
+    <td><b>On (guests can join with video)</b></td>
+  </tr>
+  <tr>
+    <td><b>External participants can get control</b></td>
+    <td><b>Off</b></td>
+  </tr>
+</table>
 
 <img src="https://i.imgur.com/CtFe80b.png" />
 
-<h2>3. Teams App Setup Policy - Pinned Applications</h2>
+<h2>3. Teams App Setup Policy: Pinned Applications</h2>
 <p>A custom Teams setup policy was configured to standardize the application bar experience for users assigned to the policy. Pinned apps are automatically installed and surfaced in the Teams sidebar for all policy members, ensuring consistent access to essential tools without requiring individual setup.</p>
 <h3>Applications pinned in the following order:</h3>
-<ul>
-  <li>Activity</li>
-  <li>Chat</li>
-  <li>Teams</li>
-  <li>Calendar</li>
-  <li>Calling</li>
-  <li>OneDrive</li>
-  <li>Calendly</li>
-</ul>
 
-<i>Why standardize pinned apps via policy?</i>
-<br />
-<i>When every user configures their own Teams sidebar, you end up with inconsistency across the org. Some people missing key tools, while others cluttered with apps they don't need. Pinning apps through an admin policy gives everyone the same starting point, reduces onboarding friction, and cuts down on "where do I find X" support tickets. Adding a third party app like Calendly also shows that Teams can be extended beyond Microsoft's own toolset to fit how a team desires to work.</i>
-<br />
+<table>
+  <tr>
+    <td><b>1. Activity</b></td>
+  </tr>
+  <tr>
+    <td><b>2. Chat</b></td>
+  </tr>
+  <tr>
+    <td><b>3. Teams</b></td>
+  </tr>
+  <tr>
+    <td><b>4. Calendar</b></td>
+  </tr>
+  <tr>
+    <td><b>5. Calling</b></td>
+  </tr>
+  <tr>
+    <td><b>6. OneDrive</b></td>
+  </tr>
+  <tr>
+    <td><b>7. Calendly</b></td>
+  </tr>
+</table>
+
+> *__Why standardize pinned apps via policy?__*
+>
+> *When every user configures their own Teams sidebar, you end up with inconsistency across the org. Some people missing key tools, while others cluttered with apps they don't need. Pinning apps through an admin policy gives everyone > the same starting point, reduces onboarding friction, and cuts down on "where do I find X" support tickets. Adding a third party app like Calendly also shows that Teams can be extended beyond Microsoft's own toolset to fit how a team desires to work.*
 
 <img src="https://i.imgur.com/0j4pSDM.png"/>
 
@@ -122,13 +144,30 @@ All editing and deleting options were turned off for guest users:</h4>
 <img src="https://i.imgur.com/qKL3FTT.png"/>
 
 <h3>Site details:</h3>
-<ul>
-  <li>Site name: Help Desk</li>
-  <li>Template: Team Site</li>
-  <li>Type: Private group</li>
-  <li>Description: IT Support Tech Team</li>
-  <li>URL: <a href="https://josephmintontech.sharepoint.com/sites/HelpDesk/SitePages/ITHelpdeskHome.aspx?e=4%3AKBySh0&web=1&at=9">IT Support Tech Team</a></li>
-</ul>
+
+<table>
+  <tr>
+    <td><b>Site name</b></td>
+    <td><b>Help Desk</b></td>
+  </tr>
+  <tr>
+    <td><b>Template</b></td>
+    <td><b>Team Site</b></td>
+  </tr>
+  <tr>
+    <td><b>Type</b></td>
+    <td><b>Private group</b></td>
+  </tr>
+  <tr>
+    <td><b>Description</b></td>
+    <td><b>IT Support Tech Team</b></td>
+  </tr>
+  <tr>
+    <td><b>URL</b></td>
+    <td><b><a href="https://josephmintontech.sharepoint.com/sites/HelpDesk/SitePages/ITHelpdeskHome.aspx?e=4%3AKBySh0&web=1&at=9">IT Support Tech Team</a></b></td>
+  </tr>
+</table>
+
 <h3>Team Site vs. Communication Site</h3>
 <ul>
   <li><strong>Team Site</strong> Designed for a small, defined group of collaborators. All members can be owners with full control. Best for internal team workspaces with restricted access.</li>
@@ -150,10 +189,9 @@ External sharing was tested by sharing the site with a personal Gmail account, c
   <li><strong>Role assignment policy</strong>: Default Role Assignment Policy</li>
 </ul>
 
-<i>Why does retention matter?</i>
-<br />
-<i>Without a retention policy, user mailboxes grow indefinitely on the local client which could eventually cause performance degradation or machine crashes. Retention policies automatically move older emails to a cloud archive, keeping the local mailbox lean while preserving data for legal, compliance, or business continuity purposes. The archive is accessible to the user at any time through Outlook or the web client.</i>
-<br />
+> *__Why does retention matter?__*
+>
+> *Without a retention policy, user mailboxes grow indefinitely on the local client which could eventually cause performance degradation or machine crashes. Retention policies automatically move older emails to a cloud archive, keeping the local mailbox lean while preserving data for legal, compliance, or business continuity purposes. The archive is accessible to the user at any time through Outlook or the web client.*
 
 <img src="https://i.imgur.com/rnl2Ndd.png" alt="Default Retention Policy"/>
 
