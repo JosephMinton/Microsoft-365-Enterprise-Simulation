@@ -4,7 +4,7 @@
 
 
 <h2>Description</h2>
-Phase 3 focuses on hardening the Microsoft 365 environment built in Phases 1 and 2. Security controls were applied across identity,
+Phase three focuses on hardening the Microsoft 365 environment built in Phases 1 and 2. Security controls were applied across identity,
 messaging, collaboration, and data layers. This defense in depth approach is often seen in enterprise IT and security operations. 
 This phase also serves as the foundation for the Conditional Access, Intune and Purview subsections that follow.
 <br />
