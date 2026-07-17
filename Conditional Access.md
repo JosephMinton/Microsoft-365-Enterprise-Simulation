@@ -53,11 +53,10 @@ Four persona groups were created in Entra ID:
 
 <img src="https://i.imgur.com/Tfxlg1Q.png" alt="Admin account listed under Read and manage and Send as"/>
 
-<i>Why does the Break-Glass group matter?</i>
-<br />
-<i>If a Conditional Access policy is misconfigured and locks out all admins, a Break-Glass account is the emergency exit. It is intentionally excluded 
-from restrictive policies so that access to the tenant can always be recovered. These accounts must be tightly controlled and audited regularly.</i>
-<br />
+> *__Why does the Break-Glass group matter?__*
+>
+> *If a Conditional Access policy is misconfigured and locks out all admins, a Break-Glass account is the emergency exit. It is intentionally excluded 
+> from restrictive policies so that access to the tenant can always be recovered. These accounts must be tightly controlled and audited regularly.*
 
 <h2>Step 2: Baseline Security Policies</h2>
 <p>These five policies form the security floor for the entire tenant. Every policy was initially set to Report only mode which logs what would 
@@ -122,10 +121,10 @@ registration ensures that only authenticated users can enroll devices, preventin
   <li><strong>Grant</strong>: Require authentication strength - Modern MFA</li>
 </ul>
 
-<i>What is the User Actions toggle?</i>
-<br />
-<i>Instead of targeting a specific application, this policy targets the act of registering a device. This is a different configuration 
-path than a standard app based policy and is easy to miss. Switching "Cloud apps" to "User actions" in the Target resourdropdown reveals this option.</i>
+> *__What is the User Actions toggle?__*
+>
+> *Instead of targeting a specific application, this policy targets the act of registering a device. This is a different configuration 
+> path than a standard app based policy and is easy to miss. Switching "Cloud apps" to "User actions" in the Target resourdropdown reveals this option.*
 
 <img src="https://i.imgur.com/hn4SvD3.png" alt=""/>
 
@@ -203,10 +202,11 @@ workaround or weakening the policy, a one time use TAP was issued with a one hou
   <li>TAP code provided to the user for immediate sign-in</li>
 </ul>
 
-<i>Why use a TAP instead of a permanent exclusion?</i>
-<br />
-<i>Creating a permanent policy exception for one user, even a CEO, introdua persistent security gap. A TAP expires after one use, meaning the security 
-perimeter is restored the moment the user signs in. It is the right tool for temporary access issues and avoids the risk of forgotten exclusions accumulating over time.</i>
+> *__Why use a TAP instead of a permanent exclusion?__*
+>
+> *Creating a permanent policy exception for one user, even a CEO, introdua persistent security gap. A TAP expires after one use, meaning the security 
+> perimeter is restored the moment the user signs in. It is the right tool for temporary access issues and avoids the risk of forgotten exclusions accumulating over time.*
+
 
 <img src="https://i.imgur.com/7QTD1Tr.png" alt=""/>
 <img src="https://i.imgur.com/bo0zJTw.png" alt=""/>
@@ -222,10 +222,10 @@ coverage if left unmonitored. Access Reviews are scheduled audits that periodica
   <li><strong>Action on denial</strong>: Remove access automatically</li>
 </ul>
 
-<i>Why review exclusion groups monthly?</i>
-<br />
-<i>Exclusion groups tend to grow quietly over time where a user gets added for a temporary reason and is never removed. Monthly reviews with automatic 
-removal on denial ensure that the Break-Glass group stays small and intentional, rather than becoming a shadow list of policy bypasses.</i>
+> *__Why review exclusion groups monthly?__*
+>
+> *Exclusion groups tend to grow quietly over time where a user gets added for a temporary reason and is never removed. Monthly reviews with automatic 
+> removal on denial ensure that the Break-Glass group stays small and intentional, rather than becoming a shadow list of policy bypasses.*
 
 
 <h1>Key Takeaways</h1>
