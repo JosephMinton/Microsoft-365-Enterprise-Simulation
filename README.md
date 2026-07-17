@@ -48,8 +48,4 @@ Centralized identity control is established through dynamic group membership, ro
     - [Intune Device Compliance & MDM](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Intune%3A%20Device%20Compliance%20%26%20MDM.md) 📱 Enrolled devices into Microsoft Intune through manual Entra ID join and Windows Autopilot, then enforced hardware security requirements, and locked down Control Panel settings to keep every managed device in a known, controlled state.
     - [Purview DLP](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Purview%20Data%20Loss%20Prevention.md) 🔍 Configured a DLP policy using Microsoft's built in PCI DSS template to detect credit and debit card numbers across Exchange, SharePoint, OneDrive, Teams, and on premises repositories. Validated the policy by triggering a real Policy Tip in Outlook, confirming detection was live and correctly scoped.
 
-<!--  - [Helpdesk Scenarios 🛠️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/Helpdesk%20Scenarios) Resolved simulated help desk tickets covering common M365 client issues including Outlook profile repair, Teams configuration, and OneDrive sync failures. Each scenario is documented with the reported symptom, root cause, and step by step resolution.
-
-  ⚡
-
-  ⚙️ or 📟
+  - [Helpdesk Scenarios](https://github.com/JosephMinton/Microsoft-365-Enterprise-Simulation/blob/main/Help%20Desk%20Scenarios.md) 🛠️ Resolved simulated help desk tickets covering common M365 client issues including Outlook profile repair, Teams configuration, and OneDrive sync failures. Each scenario is documented with the reported symptom, root cause, and step by step resolution.
