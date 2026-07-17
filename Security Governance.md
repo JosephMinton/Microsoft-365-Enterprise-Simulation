@@ -133,7 +133,7 @@ All editing and deleting options were turned off for guest users:</h4>
 
 > *__Why standardize pinned apps via policy?__*
 >
-> *When every user configures their own Teams sidebar, you end up with inconsistency across the org. Some people missing key tools, while others cluttered with apps they don't need. Pinning apps through an admin policy gives everyone > the same starting point, reduces onboarding friction, and cuts down on "where do I find X" support tickets. Adding a third party app like Calendly also shows that Teams can be extended beyond Microsoft's own toolset to fit how a team desires to work.*
+> *When every user configures their own Teams sidebar, you end up with inconsistency across the org. Some people missing key tools, while others cluttered with apps they don't need. Pinning apps through an admin policy gives everyone the same starting point, reduces onboarding friction, and cuts down on "where do I find X" support tickets. Adding a third party app like Calendly also shows that Teams can be extended beyond Microsoft's own toolset to fit how a team desires to work.*
 
 <img src="https://i.imgur.com/0j4pSDM.png"/>
 
