@@ -62,11 +62,9 @@ shared across the tenant, and proving that detection actually works in practice 
 
 <img src="https://i.imgur.com/3XK0ofD.png" />
 
-<i>Low volume vs. high volume detection rules</i>
-
-<i>DLP policies can apply different actions depending on how much sensitive data is detected in a single piece of content. A low volume match with one credit card number might trigger a warning, while a high volume match such as a spreadsheet containing hundreds of card numbers can trigger a stricter response like an outright block. This tiered approach avoids over blocking minor, low risk instances while still catching serious bulk data breaches.</i>
-<br />
-
+> *__Low volume vs. high volume detection rules__*
+>
+> *DLP policies can apply different actions depending on how much sensitive data is detected in a single piece of content. A low volume match with one credit card number might trigger a warning, while a high volume match such as a spreadsheet containing hundreds of card numbers can trigger a stricter response like an outright block. This tiered approach avoids over blocking minor, low risk instances while still catching serious bulk data breaches.*
 
 
 <h2>3. Validating the Policy: Outlook Policy Tip</h2>
@@ -79,11 +77,9 @@ shared across the tenant, and proving that detection actually works in practice 
 
 <img src="https://i.imgur.com/Hva6FO4.png" />
 
-<i>Why does live validation matter?</i>
-
-<i>A DLP policy that exists only in the admin portal but has never been tested against real content is an assumption, not a proven control. Triggering an actual Policy Tip confirms the detection engine is live, correctly scoped to the right locations, and surfacing the right information to end users at the moment of risk, not just after an audit finds the leak.</i>
-<br />
-
+> *__Why does live validation matter?__*
+>
+> *A DLP policy that exists only in the admin portal but has never been tested against real content is an assumption, not a proven control. Triggering an actual Policy Tip confirms the detection engine is live, correctly scoped to the right locations, and surfacing the right information to end users at the moment of risk, not just after an audit finds the leak.*
 
 
 <h2>4. Policy Propagation Timing</h2>
