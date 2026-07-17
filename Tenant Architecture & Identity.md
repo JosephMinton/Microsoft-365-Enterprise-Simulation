@@ -6,7 +6,7 @@
 <h2>Description</h2>
 This phase establishes the foundational Microsoft 365 environment used throughout the lab. Starting from a Business Premium trial tenant, the 
 environment was progressively expanded with Azure, Entra ID P2, and Purview trials as the lab scope grew into security and compliance 
-scenarios. Phase 1 covers tenant provisioning, initial admin navigation, user creation, bulk onboarding, role based access control, Entra ID 
+scenarios. Phase one covers tenant provisioning, initial admin navigation, user creation, bulk onboarding, role based access control, Entra ID 
 directory exploration, and external identity provider integration via Okta SSO.
 <br />
 
