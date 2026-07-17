@@ -23,36 +23,45 @@ preservation during user deletion.
 
 <h2>Technologies Used 🧪</h2>
 
- - <b>Microsoft 365 Business Premium Trial</b> 
- - <b>M365 Admin Center</b>
- - <b>Exchange Online</b>
- - <b>Microsoft Entra ID</b>
- - <b>Shared & Resource Mailboxes</b>
- - <b>Distribution & Security Groups</b>
- - <b>Mail Contacts & Mail Tips</b>
-
-<h2>Environment</h2>
-
-- <b>Exchange Online (cloud hosted)</b> 
+<table>
+  <tr>
+    <td><b>Microsoft 365 Business Premium Trial</b></td>
+    <td><b>M365 Admin Center</b></td>
+  </tr>
+  <tr>
+    <td><b>Exchange Online</b></td>
+    <td><b>Microsoft Entra ID</b></td>
+  </tr>
+  <tr>
+    <td><b>Shared & Resource Mailboxes</b></td>
+    <td><b>Distribution & Security Groups</b></td>
+  </tr>
+  <tr>
+    <td><b>Mail Contacts & Mail Tips</b></td>
+    <td><b></b></td>
+   </tr>
+</table>
 
 <h2>1. Standardized Licensing & App Management</h2>
 <p>A Business Premium license was assigned to a user with selective app level controls applied. Rather than enabling the full suite by default, unnecessary applications were manually toggled off. This reflects principles of least privilege applied to software access, not just permissions.</h3>
-<ul>
-  <li>Microsoft Defender: not applicable to the simulated org structure</li>
-  <li>Intune: restricted to users with a defined automation workflow need</li>
-</ul>
 
-</ul>
-<i>Why manage app access within a license?</i>
-<br />
-<i>Even within a single license tier, not every included application should be available to every user. Disabling unused apps reduces the attack surface. Fewer active services means 
-fewer potential entry points. It also establishes a cleaner audit trail and reflects intentional access design rather than default permissiveness.</i>
-<br />
+<table>
+  <tr>
+    <td align="center"><b>Microsoft Defender</b></td>
+    <td><b>not applicable to the simulated org structure</b></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Intune</b></td>
+    <td><b>restricted to users with a defined automation workflow need</b></td>
+   </tr>
+</table>
 
+> *__Why manage app access within a license?__*
+>
+> *Even within a single license tier, not every included application should be available to every user. Disabling unused apps reduces the attack surface. Fewer active services means 
+fewer potential entry points. It also establishes a cleaner audit trail and reflects intentional access design rather than default permissiveness.*
 
 <img src="https://i.imgur.com/FFk2Pyt.png" />
-
-
 
 
 <h2>2. Organizational Collaboration & Group Configuration</h2>
@@ -81,15 +90,20 @@ Best used for role based access control.</li>
 
 
 <h3>Permissions configured:</h3>
-<ul>
-  <li><strong>Full Access</strong> - allows reading and managing all mailbox content</li>
-  <li><strong>Send As</strong> - allows sending email as the shared mailbox address rather than the individual admin's account</li>
-</ul>
+<table>
+  <tr>
+    <td align="center"><b>Full Access</b></td>
+    <td><b>allows reading and managing all mailbox content</b></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Send As</b></td>
+    <td><b>allows sending email as the shared mailbox address rather than the individual admin's account</b></td>
+   </tr>
+</table>
 
-<i>Why use a Shared Mailbox?</i>
-<br />
-<i>Shared Mailboxes are free up to 50GB and do not require a dedicated license. They are a standard tool in enterprise environments for managing high volume or shared communication channels.</i>
-<br />
+> *__Why use a Shared Mailbox?__*
+>
+> *Shared Mailboxes are free up to 50GB and do not require a dedicated license. They are a standard tool in enterprise environments for managing high volume or shared communication channels.*
 
 <p>End-to-end functionality was validated by accessing the shared mailbox through Outlook, sending a test message to the support 
 address, and confirming receipt and reply capability from within the shared inbox.</p>
@@ -114,17 +128,20 @@ This allows internal users to locate and email external contacts without needing
 </ul>
 <img src="https://i.imgur.com/zViOHQu.png" alt="HR contact Mail Tip: external SMTP address and custom Mail Tip visible"/>
 <h3>A second Mail Tip was configured for an internal HR contact (Gwen Stacy) to manage response expectations:</h3>
-<ul>
-  <li>Mail Tip: "Please allow up to two business days for a response."</li>
-</ul>
+<table>
+  <tr>
+    <td align="center"><b>Mail Tip</b></td>
+    <td><b>"Please allow up to two business days for a response."</b></td>
+  </tr>
+</table>
+
 <img src="https://i.imgur.com/EyOyxVI.png" alt="HR contact Mail Tip: Please allow up to two business days for a response (Gwen Stacy)"/>
-<i>What is a Mail Tip?</i>
-<br />
-<i>A Mail Tip is an automated advisory message that appears in Outlook when a user begins composing an email to a specific recipient. They are used to surface important context before 
+
+> *__What is a Mail Tip?__*
+>
+> *A Mail Tip is an automated advisory message that appears in Outlook when a user begins composing an email to a specific recipient. They are used to surface important context before 
 a message is sent such as warning about external recipients or alerting users to sensitivity. Mail tips reduce misdirected emails and 
-improve communication hygiene across the organization.</i>
-
-
+improve communication hygiene across the organization.*
 
 <h2>5. Physical Resource & Facility Management</h2>
 <h3>Room and Equipment mailboxes were created to enable calendar based scheduling of physical office assets through Exchange Online.</h3>
@@ -148,11 +165,11 @@ allowing users to reserve physical assets directly from Outlook without a separa
   <li>Email and OneDrive data confirmed as retained for 30 days before permanent deletion</li>
 </ul>
 
-<i>Why does the 30 day window matter?</i>
-<br />
-<i>The 30 day retention period is a critical safeguard. It provides a recovery window in cases of accidental deletion, active legal holds, or post departure 
+> *__Why does the 30 day window matter?__*
+>
+> *The 30 day retention period is a critical safeguard. It provides a recovery window in cases of accidental deletion, active legal holds, or post departure 
 data retrieval needs. Data permanently deleted outside this window is unrecoverable without a third party backup solution, 
-making awareness of this window a required component of any enterprise offboarding operational procedures.</i>
+making awareness of this window a required component of any enterprise offboarding operational procedures.*
 
 <img src="https://i.imgur.com/y3xG0eb.png" alt="Delete user confirmation and 30 day retention message of Mei-Lin Torres"/>
 
