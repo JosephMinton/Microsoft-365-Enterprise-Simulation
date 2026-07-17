@@ -4,9 +4,7 @@
 
 <h2>Description</h2>
 Outlook is one of the most used applications in any Microsoft 365 environment, and it is also one of the most frequently reported 
-sources of IT support tickets. This section documents the troubleshooting process for the most common issues — starting with the least 
-invasive fix and escalating only when needed. The goal is always to resolve the issue without deleting the user's profile or making them 
-wait hours for their emails to re-download.
+sources of IT support tickets. This section documents the troubleshooting process for the most common issues one would encounter in Outlook. The goal is always to resolve the issue without deleting the user's profile or making them wait hours for their emails to download again.
 <br />
 
 <h2>Objective</h2>
@@ -41,7 +39,7 @@ wait hours for their emails to re-download.
 </table>
 
 <h2>Issue 1</h2>
-<h2>Outlook Crashes on Startup — Add-in Conflicts</h2>
+<h2>Outlook Crashes on Startup: Add-in Conflicts</h2>
 SYMPTOMS
 <table>
   <tr>
@@ -53,22 +51,20 @@ SYMPTOMS
     <td><b>Zoom, Teams, Bloomberg, or any third party add-in installed alongside Outlook</b></td>
   </tr>
 </table>
-<p>When Outlook crashes on startup, the first step is to open it in Safe Mode by running outlook.exe /safe from the Windows Run dialog. Safe Mode loads Outlook without any add-ins. If 
-Outlook opens normally in Safe Mode but crashes otherwise, the problem is an add-in — not the profile or the application itself.</p>
+<p>When Outlook crashes on startup, the first step is to open it in Safe Mode by running outlook.exe /safe from the Windows Run dialog. Safe Mode loads Outlook without any add-ins. If Outlook opens normally in Safe Mode but crashes otherwise, the problem is an add-in, not the profile or the application itself.</p>
 </br>
-<p>From there, navigate to File, then Options, then Add-ins, and click Go next to COM Add-ins. Review the list of installed add-ins and look for any that are unchecked — sometimes 
-Outlook automatically disables a problematic add-in after a crash and that unchecked box is the giveaway. Re-enabling it or disabling the conflicting one usually resolves the issue.</p>
+<p>From there, navigate to File, then Options, then Add-ins, and click Go next to COM Add-ins. Review the list of installed add-ins and look for any that are unchecked. Sometimes Outlook automatically disables a problematic add-in after a crash and that unchecked box is the giveaway. Enabling it or disabling the conflicting one usually resolves the issue.</p>
 
 <img src="https://i.imgur.com/znLOzip.png"/>
 
-> *__Escalation path if re-enabling does not work__*
+> *__Escalation path if Enabling does not work__*
 >
 > *If adjusting the add-in does not fix the issue, the next step is to go to Control Panel, open Uninstall a Program, find the affected application such as Zoom, and choose Repair rather than Uninstall. Repair fixes the application files without removing the software entirely. If the
-> problem persists after that, creating a new Outlook profile is the last resort — but this means the user's emails will need to re-download, which can take a long time on large mailboxes. As a workaround while that process runs, point the user to Outlook on the web so they can keep working.*
+> problem persists after that, creating a new Outlook profile is the last resort. But this means the user's emails will need to downloaded again, which can take a long time on large mailboxes. As a workaround while that process runs, point the user to Outlook on the web so they can keep working.*
 
 
 <h2>Issue 2</h2>
-<h2>Search Not Working — Rebuild the Search Index</h2>
+<h2>Search Not Working: Rebuild the Search Index</h2>
 SYMPTOMS
 <table>
   <tr>
@@ -81,19 +77,17 @@ SYMPTOMS
   </tr>
 </table>
 
-<p>The fix is to rebuild the search index from scratch. Open Control Panel and navigate to Indexing Options. Click Advanced, then under the Troubleshooting section click Rebuild. 
-Windows will delete the existing index and build a new one — this process runs in the background and can take a while depending on how many items are indexed.</p>
+<p>The fix is to rebuild the search index from scratch. Open Control Panel and navigate to Indexing Options. Click Advanced, then under the Troubleshooting section click Rebuild. Windows will delete the existing index and build a new one which runs in the background and can take a while depending on how many items are indexed.</p>
 
 <img src="https://i.imgur.com/yQ67lPu.png"/>
 
-<h3><strong>Alternative — Restart the Windows Search Service</strong></h3>
-<p>A quicker option that sometimes resolves search issues without a full rebuild is to restart the Windows Search service. Open the Services application on Windows, scroll down to 
-Windows Search, and click Stop followed by Start. This refreshes the search service without wiping and rebuilding the entire index.</p>
+<h3><strong>Alternative Method By Restarting the Windows Search Service</strong></h3>
+<p>A quicker option that sometimes resolves search issues without a full rebuild is to restart the Windows Search service. Open the Services application on Windows, scroll down to Windows Search, and click Stop followed by Start. This refreshes the search service without wiping and rebuilding the entire index.</p>
 
 <img src="https://i.imgur.com/Ai4usyM.png"/>
 
 <h2>Issue 3</h2>
-<h2>Persistent Issues — Microsoft 365 Online Repair</h2>
+<h2>Persistent Issues: Microsoft 365 Online Repair</h2>
 SYMPTOMS
 <table>
   <tr>
@@ -107,13 +101,13 @@ SYMPTOMS
 </table>
 <p>Online Repair is the most thorough repair option available for Microsoft 365. It downloads a fresh copy of the Office installation files from Microsoft's servers and replaces any corrupted components. To run it, open Control Panel and go to Uninstall a Program. Find Microsoft 365, click Change, and select Online Repair from the options presented.</p>
 </br>
-<p>Online Repair takes longer than Quick Repair because it requires an internet connection throughout, but it has a significantly higher success rate for deep application issues. Quick Repair is faster but only fixes problems it can resolve without downloading files — if that does not work, Online Repair is the correct next step.</p>
+<p>Online Repair takes longer than Quick Repair because it requires an internet connection throughout, but it has a significantly higher success rate for deep application issues. Quick Repair is faster but only fixes problems it can resolve without downloading files - if that does not work, Online Repair is the correct next step.</p>
 
 <img src="https://i.imgur.com/90poPb5.png"/>
 
 
 <h2>Issue 4</h2>
-<h2>Password Prompt Keeps Appearing — Credential Manager</h2>
+<h2>Password Prompt Keeps Appearing - Credential Manager</h2>
 SYMPTOMS
 <table>
   <tr>
@@ -131,7 +125,7 @@ SYMPTOMS
 > *__Also worth checking__*
 >
 > *If the password prompt keeps returning after clearing credentials, the user's Active Directory account may be locked out or their password may have expired at the directory level. In 
-> that case the fix is on the admin side — unlocking the account or resetting the password in the Microsoft 365 Admin Center or via PowerShell rather than on the local machine.*
+> that case the fix is on the admin side - unlocking the account or resetting the password in the Microsoft 365 Admin Center or via PowerShell rather than on the local machine.*
 
 <img src="https://i.imgur.com/urNM6fE.png"/>
 
