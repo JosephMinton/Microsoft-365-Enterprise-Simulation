@@ -59,7 +59,7 @@ SYMPTOMS
 
 > *__Escalation path if Enabling does not work__*
 >
-> *If adjusting the add-in does not fix the issue, the next step is to go to Control Panel, open Uninstall a Program, find the affected application such as Zoom, and choose Repair rather than Uninstall. Repair fixes the application files without removing the software entirely. If the
+> *If adjusting the add-in does not fix the issue, the next step is to go to Control Panel, open Uninstall or Change a Program, find the affected application such as Zoom, and choose Repair rather than Uninstall. Repair fixes the application files without removing the software entirely. If the
 > problem persists after that, creating a new Outlook profile is the last resort. But this means the user's emails will need to downloaded again, which can take a long time on large mailboxes. As a workaround while that process runs, point the user to Outlook on the web so they can keep working.*
 
 
@@ -99,15 +99,15 @@ SYMPTOMS
     <td><b>After simpler fixes like add-in adjustments and profile repairs have not resolved the issue</b></td>
   </tr>
 </table>
-<p>Online Repair is the most thorough repair option available for Microsoft 365. It downloads a fresh copy of the Office installation files from Microsoft's servers and replaces any corrupted components. To run it, open Control Panel and go to Uninstall a Program. Find Microsoft 365, click Change, and select Online Repair from the options presented.</p>
+<p>Online Repair is the most thorough repair option available for Microsoft 365. It downloads a fresh copy of the Office installation files from Microsoft's servers and replaces any corrupted components. To run it, open Control Panel and go to Uninstall or Change a Program. Find Microsoft 365, click Change, and select Online Repair from the options presented.</p>
 </br>
-<p>Online Repair takes longer than Quick Repair because it requires an internet connection throughout, but it has a significantly higher success rate for deep application issues. Quick Repair is faster but only fixes problems it can resolve without downloading files - if that does not work, Online Repair is the correct next step.</p>
+<p>Online Repair takes longer than Quick Repair because it requires an internet connection throughout, but it has a significantly higher success rate for deep application issues. Quick Repair is faster but only fixes problems it can resolve without downloading files. If that does not work, Online Repair is the correct next step.</p>
 
 <img src="https://i.imgur.com/90poPb5.png"/>
 
 
 <h2>Issue 4</h2>
-<h2>Password Prompt Keeps Appearing - Credential Manager</h2>
+<h2>Password Prompt Keeps Appearing: Credential Manager</h2>
 SYMPTOMS
 <table>
   <tr>
@@ -124,8 +124,7 @@ SYMPTOMS
 
 > *__Also worth checking__*
 >
-> *If the password prompt keeps returning after clearing credentials, the user's Active Directory account may be locked out or their password may have expired at the directory level. In 
-> that case the fix is on the admin side - unlocking the account or resetting the password in the Microsoft 365 Admin Center or via PowerShell rather than on the local machine.*
+> *If the password prompt keeps returning after clearing credentials, the user's Active Directory account may be locked out or their password may have expired at the directory level. In that case the fix is on the admin side by unlocking the account or resetting the password in the Microsoft 365 Admin Center or using PowerShell rather than on the local machine.*
 
 <img src="https://i.imgur.com/urNM6fE.png"/>
 
@@ -137,5 +136,4 @@ SYMPTOMS
 <li><strong>Rebuilt the Windows Search index via Control Panel and restarted the Windows Search service as a lighter alternative fix</li>
 <li><strong>Ran a Microsoft 365 Online Repair to address deep application issues that simpler fixes could not resolve</li>
 <li><strong>Cleared stored credentials in Windows Credential Manager to stop repeated password prompts caused by an expired saved password</li>
-<li><strong>Documented additional common issues including offline mode, PST corruption, attachment problems, calendar sync, and slow performance as a practical support reference</li>
 </ul>
