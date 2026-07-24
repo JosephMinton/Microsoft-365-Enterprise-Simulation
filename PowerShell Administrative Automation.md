@@ -5,8 +5,7 @@
 
 <h2>Description</h2>
 The Microsoft 365 Admin Center is a great tool for routine tasks, but it was never designed for speed or scale. PowerShell with the Microsoft Graph SDK lets an administrator do in seconds what would take 
-minutes through the portal — and more importantly, it lets you do it across hundreds of users at once. This section covers the full user lifecycle managed entirely through the command 
-line: installing the tools, connecting securely, creating users one at a time and in bulk, managing licenses, enforcing security controls, and handling offboarding and recovery.
+minutes through the portal. This section covers the full user lifecycle managed entirely through the command line: installing the tools, connecting securely, creating users one at a time and in bulk, managing licenses, enforcing security controls, and handling offboarding and recovery.
 <br />
 
 <h2>Objective</h2>
@@ -34,7 +33,7 @@ line: installing the tools, connecting securely, creating users one at a time an
   </tr>
 </table>
 
-<h2>1. Environment Setup — Installing Microsoft Graph</h2>
+<h2>1. Environment Setup: Installing Microsoft Graph</h2>
 <p>Before any tenant management can happen through PowerShell, the Microsoft Graph PowerShell SDK needs to be installed. This is the official module that lets PowerShell 
 communicate with Microsoft 365 through the Graph API. PowerShell was launched as Administrator to ensure the installation had the right permissions.</p>
 </br>
@@ -56,10 +55,10 @@ Get-InstalledModule Microsoft.Graph
 
 
 
-<h2>2. Secure Connectivity — Connecting to Microsoft Graph</h2>
+<h2>2. Secure Connectivity: Connecting to Microsoft Graph</h2>
 
-<p>Connecting to the tenant through PowerShell requires specifying permission scopes — these define exactly what the session is allowed to read or modify. Following the principle of least 
-privilege, a read-only scope was used first to explore the tenant, then escalated to write permissions only when user provisioning required it.</p>
+<p>Connecting to the tenant through PowerShell requires specifying permission scopes which defines exactly what the session is allowed to read or modify. Following the principle of least 
+privilege, a read only scope was used first to explore the tenant, then escalated to write permissions only when user provisioning required it.</p>
 
 READ SCOPE: TENANT EXPLORATION
 
@@ -88,7 +87,7 @@ Get-MgUser -All | Select-Object DisplayName, Id, UserPrincipalName
 
 
 
-<h2>3. Single User Provisioning — Mikasa Ackerman</h2>
+<h2>3. Single User Provisioning: Mikasa Ackerman</h2>
 <p>A single user account was provisioned entirely through PowerShell to demonstrate the full creation workflow. Before creating the user, available license SKUs in the tenant were queried to identify the correct license ID for assignment.</p>
 CHECK AVAILABLE LICENSES
 
@@ -98,7 +97,7 @@ Get-MgSubscribedSku | Select -Property Sku*, ConsumedUnits -ExpandProperty Prepa
 
 <img src="https://i.imgur.com/9OFD26M.png"/>
 
-<p>The user was then created with a display name, UPN, mail nickname, usage location, and a password profile. Usage location must be set before a license can be assigned — it is a required field in Microsoft 365 for compliance and data residency purposes.</p>
+<p>The user was then created with a display name, UPN, mail nickname, usage location, and a password profile.
 
 CREATE THE USER
 
@@ -116,7 +115,7 @@ New-MgUser -DisplayName "Mikasa Ackerman" `
 
 <img src="https://i.imgur.com/EjyHH4f.png"/>
 
-<p>The SPB (Microsoft 365 Business Premium) license was then assigned to Mikasa and confirmed via a follow-up query.</p>
+<p>The Microsoft 365 Business Premium license was then assigned to Mikasa and confirmed through an additional query.</p>
 
 ASSIGN LICENSE
  ```powershell
@@ -129,7 +128,7 @@ Get-MgUserLicenseDetail -UserId "mikasaa@JosephMintonTech.onmicrosoft.com" | Sel
 
 <img src="https://i.imgur.com/ARqxGd5.png"/>
 
-<p>As a bonus step, the usage location was updated across all users in the tenant from US to France and back to US — demonstrating how a bulk attribute change can be applied to every user in a single command rather than updating each account individually.</p>
+<p>As a bonus step, the usage location was updated across all users in the tenant from US to France and back to US. This demonstrates how a bulk attribute change can be applied to every user in a single command rather than updating each account individually.</p>
 
 BULK LOCATION UPDATE
 ```powershell
@@ -138,13 +137,12 @@ Get-MgUser | ForEach-Object { Update-MgUser -UserId $_.Id -UsageLocation "US" }
 ```
 
 <img src="https://i.imgur.com/bPVcMva.png"/>
-<p>Mikasa's account was then verified in the M365 Admin Center, confirming her profile showed the correct license and United States location.</p>
+<p>Mikasa's account was then verified in the Microsoft 365 Admin Center, confirming her profile showed the correct license and United States location.</p>
 <img src="https://i.imgur.com/Vg82Sir.png"/>
 
 
-<h2>4. Bulk User Provisioning — 15 Users via CSV</h2>
-<p>To simulate a real onboarding event, 15 user accounts were provisioned in a single scripted operation using a CSV file. Each row in the CSV contained a complete user record — UPN, first name, last name, 
-display name, usage location, and mail nickname. The PowerShell loop iterated through every record, created the account, and assigned the SPB license automatically.</p>
+<h2>4. Bulk User Provisioning: 15 Users via CSV</h2>
+<p>To simulate a real onboarding event, 15 user accounts were provisioned in a single scripted operation using a CSV file. Each row in the CSV contained a complete user record of the following: UPN, first name, last name, display name, usage location, and mail nickname. The PowerShell loop iterated through every record, created the account, and assigned the SPB license automatically.</p>
 
 <img src="https://i.imgur.com/i3MQs1g.png"/>
 
@@ -173,21 +171,20 @@ foreach ($user in $users) {
 
 <img src="https://i.imgur.com/ElQp7HH.png"/>
 
-<p>All 15 accounts were verified in the M365 Admin Center, filtered by Business Premium license and Sign-in status Allowed, confirming every user was created and licensed correctly.</p>
+<p>All 15 accounts were verified in the Microsoft 365 Admin Center, filtered by Business Premium license and sign in status allowed, confirming every user was created and licensed correctly.</p>
 
 <img src="https://i.imgur.com/NSMIVf2.png"/>
 
 <i>Why CSV bulk provisioning matters</i>
 <br />
-<i>In a real onboarding scenario involving dozens or hundreds of new employees, manually creating each account through the portal is not practical. A CSV-driven PowerShell script reduces a multi-hour 
-manual task to a few minutes, eliminates data entry errors, and produces a consistent result every time. The same script can be reused for future onboarding events with a new CSV file.</i>
+<i>In a real onboarding scenario involving dozens or hundreds of new employees, manually creating each account through the portal is not practical. A CSV based PowerShell script reduces a manual task that would take several hours to just a few minutes, eliminates data entry errors, and produces consistent results every time. The same script can be reused for future onboarding events by simply providing a new CSV file.</i>
 <br />
 
 
-<h2>5. Security Operations — Block Sign-in & Password Management</h2>
-<h3>Two critical security operations were performed via PowerShell without using the admin portal — blocking a user's sign-in access and forcing a password change on next login.</h3>
+<h2>5. Security Operations - Block Sign-in & Password Management</h2>
+<h3>Two critical security operations were performed via PowerShell without using the admin portal - blocking a user's sign-in access and forcing a password change on next login.</h3>
 <h3><strong>Block Sign-in</strong></h3>
-<p>Mikasa Ackerman's account was disabled to immediately revoke her access to the tenant. This is the first action in any offboarding or security response scenario — it cuts off access instantly while the rest of the offboarding process continues.</p>
+<p>Mikasa Ackerman's account was disabled to immediately revoke her access to the tenant. This is the first action in any offboarding or security response scenario - it cuts off access instantly while the rest of the offboarding process continues.</p>
 
 DISABLE ACCOUNT
 ```powershell
@@ -215,9 +212,9 @@ Update-MgUser -UserId "mikasaa@JosephMintonTech.onmicrosoft.com" `
 
 
 
-<h2>6. Account Offboarding — John Doe</h2>
+<h2>6. Account Offboarding - John Doe</h2>
 <p>A complete offboarding workflow was executed for John Doe entirely through PowerShell. The process followed the correct 
-order of operations — verify the license, remove it, delete the account, then confirm the deletion.</p>
+order of operations - verify the license, remove it, delete the account, then confirm the deletion.</p>
 
 <h3><strong>License Verification and Removal</strong></h3>
 
@@ -257,7 +254,7 @@ Get-MgDirectoryDeletedItemAsUser -All
 
 
 
-<h2>7. Restoring a Deleted User — John Doe</h2>
+<h2>7. Restoring a Deleted User - John Doe</h2>
 <p>Deleted users in Microsoft 365 are held in a recycle bin for 30 days before being permanently removed. This window allows administrators to recover accounts deleted by mistake. 
 John Doe's object ID was retrieved from the recycle bin and used to restore the account.</p>
 
@@ -274,7 +271,7 @@ Get-MgUser -UserId "johnd@JosephMintonTech.onmicrosoft.com" `
 
 <i>Why does AccountEnabled return False after restore?</i>
 <br />
-<i>When an account is restored from the recycle bin, it comes back exactly as it was when it was deleted — including the disabled state from offboarding. This is intentional and expected. AccountEnabled: 
+<i>When an account is restored from the recycle bin, it comes back exactly as it was when it was deleted - including the disabled state from offboarding. This is intentional and expected. AccountEnabled: 
 False simply confirms the restore was successful. The account exists again in the tenant but sign-in remains blocked until an administrator explicitly reactivates it, which prevents an accidentally restored account from immediately gaining access.</i>
 <br />
 
@@ -286,6 +283,6 @@ False simply confirms the restore was successful. The account exists again in th
 <li><strong>Demonstrated bulk attribute management by updating usage location across all tenant users in a single pipeline command</li>
 <li><strong>Bulk provisioned 15 users from a structured CSV file using a PowerShell loop that created each account and assigned a license automatically</li>
 <li><strong>Blocked sign-in access and enforced a forced password change via PowerShell as security response operations</li>
-<li><strong>Executed a complete offboarding workflow — license removal, account deletion, and recycle bin verification — entirely from the CLI</li>
+<li><strong>Executed a complete offboarding workflow - license removal, account deletion, and recycle bin verification - entirely from the CLI</li>
 <li><strong>Restored a deleted user from the 30-day recycle bin using the object ID retrieved from a directory query</li>
 </ul>
