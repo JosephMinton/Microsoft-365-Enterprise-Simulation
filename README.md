@@ -1,9 +1,20 @@
 <h1><a href="https://www.linkedin.com/in/josephkdminton/">Joseph Minton</a>'s Microsoft 365 Enterprise Lab ☁️</h1>
 
-This project simulates an enterprise Microsoft 365 environment focused on identity and access management, security governance, administrative automation, and help desk operations. Using Microsoft 365 Business Premium, the lab covers user lifecycle management, role-based access control, Conditional Access, Intune device management, data loss prevention, and troubleshooting common Microsoft 365 applications.
+<table>
+  <tr>
+    <td valign="middle">
+      <p>
+        This project simulates an enterprise Microsoft 365 environment focused on identity and access management, security governance, administrative automation, and help desk operations. Using Microsoft 365 Business Premium, the lab covers user lifecycle management, role-based access control, Conditional Access, Intune device management, data loss prevention, and troubleshooting common Microsoft 365 applications.
+      </p>
+    </td>
+    <td valign="middle" align="center" width="150">
+      <img src="https://i.imgur.com/uq2r4Vw.jpeg" alt="Microsoft 365 logo" width="150">
+    </td>
+  </tr>
+</table>
 
 <h2>Technologies Used 🧪</h2>
-
+      
 <table>
   <tr>
     <td><b>Microsoft 365</b></td>
