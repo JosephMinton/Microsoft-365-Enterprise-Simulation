@@ -1,5 +1,5 @@
-# [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
-# [Security Governance 🔒](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
+# [Microsoft 365 Enterprise Simulation](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md) ☁️
+# [Security Governance](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md) 🔒
 <h1>Conditional Access 🚧</h1>
 
 <h2>Technologies Used 🧪</h2>
