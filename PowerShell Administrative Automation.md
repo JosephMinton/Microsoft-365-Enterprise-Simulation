@@ -1,5 +1,5 @@
-# [Microsoft 365 Enterprise Simulation ☁️](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md)
-<h1>Advanced Administrative Automation with PowerShell 📦</h1>
+# [Microsoft 365 Enterprise Simulation](https://github.com/JosephMinton/Microsoft-365-Enterprise/blob/main/README.md) ☁️
+<h1>Advanced Administrative Automation with PowerShell 📦</h1> 
 
 
 <h2>Description</h2>
